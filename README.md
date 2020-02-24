@@ -18,7 +18,7 @@
 | `<my-cmp [(title)]="name">` | Sets up two-way data binding. Equivalent to: `<my-cmp [title]="name" (titleChange)="name=$event">` | :heavy_check_mark: | :x: | :question: |
 | `<video #movieplayer ...>`<br/>`<button (click)="movieplayer.play()">`<br/>`</video>` | Creates a local variable movieplayer that provides access to the video element instance in data-binding and event-binding expressions in the current template | :heavy_check_mark: | :x: | :question: |
 | `<p *myUnless="myExpression">...</p>` | The * symbol turns the current element into an embedded template. Equivalent to: `<ng-template [myUnless]="myExpression"><p>...</p></ng-template>` | :heavy_check_mark: | :x: | :question: |
-| `<p>Card No.: {{cardNumber &#124; myCardNumberFormatter}}</p>` | Transforms the current value of expression cardNumber via the pipe called myCardNumberFormatter | :heavy_check_mark: | :x: | :question: |
+| `<p>Card No.: {{cardNumber` &#124; `myCardNumberFormatter}}</p>` | Transforms the current value of expression cardNumber via the pipe called myCardNumberFormatter | :heavy_check_mark: | :x: | :question: |
 | `<p>Employer: {{employer?.companyName}}</p>` | The safe navigation operator (?) means that the employer field is optional and if undefined, the rest of the expression should be ignored | :heavy_check_mark: | :x: | :question: |
 | `<svg:rect x="0" y="0" width="100" height="100"/>` | An SVG snippet template needs an svg: prefix on its root element to disambiguate the SVG element from an HTML component | :question: | :x: | :question: |
 | `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>``</svg>` | An svg root element is detected as an SVG element automatically, without the prefix | :question: | :x: | :question: |
@@ -32,10 +32,11 @@
 | `<div [ngClass]="{'active': isActive, 'disabled': isDisabled}">` | Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map | :heavy_check_mark: | :x: | :question: |
 | `<div [ngStyle]="{'property': 'value'}">`<br/>`<div [ngStyle]="dynamicStyles()">` | Allows you to assign styles to an HTML element using CSS. You can use CSS directly, as in the first example, or you can call a method from the component | :heavy_check_mark: | :x: | :question: |
 
-
-### Forms
-
 ### Class decorators
+| `@Component({...})`<br/>`class MyComponent() {}` | Declares that a class is a component and provides metadata about the component | :heavy_check_mark: | :x: | :question: |
+| `@Directive({...})`<br/>`class MyDirective() {}` | Declares that a class is a directive and provides metadata about the directive | :question: | :x: | :question: |
+| `@Pipe({...})`<br/>`class MyPipe() {}` | Declares that a class is a pipe and provides metadata about the pipe | :question: | :x: | :question: |
+| `@Injectable()`<br/>`class MyService() {}` | Declares that a class can be provided and injected by other classes. Without this decorator, the compiler won't generate enough metadata to allow the class to be created properly when it's injected somewhere | :heavy_check_mark: | :x: | :question: |
 
 ### Directive configuration
 
