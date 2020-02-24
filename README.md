@@ -33,6 +33,8 @@
 | `<div [ngStyle]="{'property': 'value'}">`<br/>`<div [ngStyle]="dynamicStyles()">` | Allows you to assign styles to an HTML element using CSS. You can use CSS directly, as in the first example, or you can call a method from the component | :heavy_check_mark: | :x: | :question: |
 
 ### Class decorators
+| Feature | Description | Planned | Implemented | Link |
+| --- | ---| --- | --- | --- |
 | `@Component({...})`<br/>`class MyComponent() {}` | Declares that a class is a component and provides metadata about the component | :heavy_check_mark: | :x: | :question: |
 | `@Directive({...})`<br/>`class MyDirective() {}` | Declares that a class is a directive and provides metadata about the directive | :question: | :x: | :question: |
 | `@Pipe({...})`<br/>`class MyPipe() {}` | Declares that a class is a pipe and provides metadata about the pipe | :question: | :x: | :question: |
