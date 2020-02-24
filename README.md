@@ -38,7 +38,7 @@
 | `@Component({...})`<br/>`class MyComponent() {}` | Declares that a class is a component and provides metadata about the component | :heavy_check_mark: | :x: | :question: |
 | `@Directive({...})`<br/>`class MyDirective() {}` | Declares that a class is a directive and provides metadata about the directive | :question: | :x: | :question: |
 | `@Pipe({...})`<br/>`class MyPipe() {}` | Declares that a class is a pipe and provides metadata about the pipe | :question: | :x: | :question: |
-| `@Injectable()`<br/>`class MyService() {}` | Declares that a class can be provided and injected by other classes. Without this decorator, the compiler won't generate enough metadata to allow the class to be created properly when it's injected somewhere | :heavy_check_mark: | :x: | :question: |
+| `@Injectable()`<br/>`class MyService() {}` | Declares that a class can be provided and injected by other classes. Without this decorator, the compiler won't generate enough metadata to allow the class to be created properly when it's injected somewhere | :question: | :x: | :question: |
 
 ### Directive configuration
 
