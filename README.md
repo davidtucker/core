@@ -27,7 +27,7 @@
 | `preserveWhitespaces` | :question: | :x: | :question: |
 | `module.id` | :question: | :x: | :question: |
 
-### Class field decorators for directives and components
+### Class field decorators for components
 | Feature | Planned | Implemented | Link |
 | --- | ---| --- | --- |
 | `@Input()` | :heavy_check_mark: | :x: | :question: |
@@ -39,7 +39,7 @@
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |	
 
-### Component, Directive, change detection and lifecycle hooks
+### Component lifecycle hooks
 | Feature | Planned | Implemented | Link |
 | --- | ---| --- | --- |
 | `constructor()`| :heavy_check_mark: | :x: | :question: |
@@ -79,7 +79,7 @@
 | `[ngClass]` | :heavy_check_mark: | :x: | :question: |
 | `[ngStyle]` | :heavy_check_mark: | :x: | :question: |
 
-### Dependency injection configuration
+### Dependency injection
 | Feature | Planned | Implemented | Link |
 | --- | ---| --- | --- |
 | `Depency Injection` | :heavy_check_mark: | :question: | :question: |
