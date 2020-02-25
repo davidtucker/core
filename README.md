@@ -27,7 +27,6 @@
 | `changeDetection` | :x: | :x: | :question: |
 | `entryComponents` | :x: | :x: | :question: |
 | `preserveWhitespaces` | :x: | :x: | :question: |
-| `preserveWhitespaces` | :x: | :x: | :question: |
 | `module.id` | :x: | :x: | :question: |
 | `jit` | :x: | :x: | :question: |
 | | | | |
