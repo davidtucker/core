@@ -7,7 +7,8 @@
 | `@Pipe()`| :question: | :x: | :question: |
 | `@Injectable()`| :question: | :x: | :question: |
 | | | | |
-| Component configuration | | | |
+| | | | |
+| **Component configuration** | | | |
 | `selector` | :heavy_check_mark: | :x: | :question: |
 | `inputs` | :heavy_check_mark: | :x: | :question: |
 | `host` | :heavy_check_mark: | :x: | :question: |
@@ -23,10 +24,9 @@
 | `entryComponents` | :question: | :x: | :question: |
 | `preserveWhitespaces` | :question: | :x: | :question: |
 | `module.id` | :question: | :x: | :question: |
-
-### Class field decorators for components
-| Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
+| | | | |
+| | | | |
+| **Class field decorators for components** | | | |
 | `@Input()` | :heavy_check_mark: | :x: | :question: |
 | `@Output()`| :heavy_check_mark: | :x: | :question: |
 | `@HostBinding('class.valid')`| :heavy_check_mark: | :x: | :question: |
@@ -35,10 +35,9 @@
 | `@ContentChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |	
-
-### Component lifecycle hooks
-| Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
+| | | | |
+| | | | |
+| **Component lifecycle hooks**| | | |
 | `constructor()`| :heavy_check_mark: | :x: | :question: |
 | `ngOnChanges(changeRecord)` | :heavy_check_mark: | :x: | :question: |
 | `ngOnInit()` | :heavy_check_mark: | :x: | :question: |
@@ -48,10 +47,9 @@
 | `ngAfterViewInit()` | :heavy_check_mark: | :x: | :question: |
 | `ngAfterViewChecked()`| :question: | :x: | :question: |
 | `ngOnDestroy()`| :heavy_check_mark: | :x: | :question: |
-
-### Template syntax
-| Feature| Planned | Implemented | Link |
-| --- | ---| --- | --- |
+| | | | |
+| | | | |
+| **Template syntax**| | | |
 | `[value]="firstName"`| :heavy_check_mark: | :x: | :question: |
 | `[attr.role]="myAriaRole"`| :heavy_check_mark: | :x: | :question: |
 | `[class.extra-sparkle]="isDelightful"`| :heavy_check_mark: | :x: | :question: |
@@ -66,32 +64,27 @@
 | `Employer: {{employer?.companyName}}`| :heavy_check_mark: | :x: | :question: |
 | `<svg:rect x="0" y="0" width="100" height="100"/>`| :question: | :x: | :question: |
 | `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>`<br/>`</svg>`| :question: | :x: | :question: |
-
-### Built-in directives
-| Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
+| | | | |
+| | | | |
+| **Built-in directives**| | | |
 | `*ngIf="showSection"`| :heavy_check_mark: | :x: | :question: |
 | `*ngFor="let item of list"`| :heavy_check_mark: | :x: | :question: |
 | `[ngSwitch], [ngSwitchCase], ...` | :heavy_check_mark: | :x: | :question: |
 | `[ngClass]` | :heavy_check_mark: | :x: | :question: |
 | `[ngStyle]` | :heavy_check_mark: | :x: | :question: |
-
-### Dependency injection
-| Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
-| `Depency Injection` | :heavy_check_mark: | :question: | :question: |
-
-### Routing and navigation
-| Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
-| `Routing` | :heavy_check_mark: | :question: | :question: |
-
-### Directive configuration
-| Feature| Planned | Implemented | Link |
-| --- | ---| --- | --- |
-| `Directive configuration`| :question: | :question: | :question: |
-
-### NgModules
-| Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
-| `NgModules` | :x: | :x: | :x: |
+| | | | |
+| | | | |
+| **Dependency injection**| | | |
+| :question: | :heavy_check_mark: | :question: | :question: |
+| | | | |
+| | | | |
+| **Routing and navigation**| | | |
+| :question: | :heavy_check_mark: | :question: | :question: |
+| | | | |
+| | | | |
+| **Directive configuration**| | | |
+| :question: | :question: | :question: | :question: |
+| | | | |
+| | | | |
+| **NgModules**| | | |
+| :question: | :x: | :x: | :x: |
