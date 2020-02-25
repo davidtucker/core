@@ -39,7 +39,8 @@
 | `@ContentChild(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ContentChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | :x: | :question: |
-| `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |	
+| `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
+| `@Query(myPredicate)`| :question: | :x: | :question: |		
 | | | | |
 | | | | |
 | **Component lifecycle hooks**| | | |
