@@ -1,22 +1,14 @@
-<style>
-table {
-    width:100%;
-}
-</style>
-# core
-
-
-### Component Class decorator
+## core
 | Feature | Planned | Implemented | Link |
 | --- | ---| --- | --- |
+| **Component Class decorator** | | | |
 | `@Component()` | :heavy_check_mark: | :x: | :question: |
 | `@Directive()`| :question: | :x: | :question: |
 | `@Pipe()`| :question: | :x: | :question: |
 | `@Injectable()`| :question: | :x: | :question: |
-
-### Component configuration
 | Feature | Planned | Implemented | Link |
-| --- | ---| --- | --- |
+| | | | |
+| Component configuration | | | |
 | `selector` | :heavy_check_mark: | :x: | :question: |
 | `inputs` | :heavy_check_mark: | :x: | :question: |
 | `host` | :heavy_check_mark: | :x: | :question: |
