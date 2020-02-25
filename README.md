@@ -66,7 +66,6 @@
 | `[(title)]="name"`| :heavy_check_mark: | :x: | :question: |
 | `<video #movieplayer`<br/>`<button (click)="movieplayer.play()">`<br/>`</video>`| :heavy_check_mark: | :x: | :question: |
 | `*myUnless="myExpression"` | :heavy_check_mark: | :x: | :question: |
-| `Card No.: {{cardNumber` &#124; `myCardNumberFormatter}}`| :heavy_check_mark: | :x: | :question: |
 | `Employer: {{employer?.companyName}}`| :heavy_check_mark: | :x: | :question: |
 | `<ng-template>`| :heavy_check_mark: | :x: | :question: |
 | `<ng-content>`| :heavy_check_mark: | :x: | :question: |
@@ -108,6 +107,9 @@
 | `{{ value_expression` &#124; `i18nSelect }}` | :question: | :x: | :question: |
 | `{{ value_expression` &#124; `titlecase }}` | :question: | :x: | :question: |
 | | | | |
+| | | | |
+| **State** | :heavy_check_mark: | :question: | :question: |
+| `useState(0)` | :question: | :x: | :question: |
 | | | | |
 | **Dependency injection** | :heavy_check_mark: | :question: | :question: |
 | | | | |
