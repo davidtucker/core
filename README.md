@@ -12,18 +12,18 @@
 | `selector` | :heavy_check_mark: | :x: | :question: |
 | `inputs` | :heavy_check_mark: | :x: | :question: |
 | `host` | :heavy_check_mark: | :x: | :question: |
-| `viewProviders` | :question: | :x: | :question: |
 | `template` | :heavy_check_mark: | :x: | :question: |
 | `templateUrl` | :heavy_check_mark: | :x: | :question: |
 | `styles` | :heavy_check_mark: | :x: | :question: |
 | `styleUrls` | :heavy_check_mark: | :x: | :question: |
-| `changeDetection` | :question: | :x: | :question: |
-| `animations` | :question: | :x: | :question: |
 | `encapsulation` | :heavy_check_mark: | :x: | :question: |
 | `interpolation` | :heavy_check_mark: | :x: | :question: |
-| `entryComponents` | :question: | :x: | :question: |
-| `preserveWhitespaces` | :question: | :x: | :question: |
-| `module.id` | :question: | :x: | :question: |
+| `animations` | :question: | :x: | :question: |
+| `viewProviders` | :x: | :x: | :question: |
+| `changeDetection` | :x: | :x: | :question: |
+| `entryComponents` | :x: | :x: | :question: |
+| `preserveWhitespaces` | :x: | :x: | :question: |
+| `module.id` | :x: | :x: | :question: |
 | | | | |
 | | | | |
 | **Class field decorators for components** | | | |
@@ -41,12 +41,12 @@
 | `constructor()`| :heavy_check_mark: | :x: | :question: |
 | `ngOnChanges(changeRecord)` | :heavy_check_mark: | :x: | :question: |
 | `ngOnInit()` | :heavy_check_mark: | :x: | :question: |
-| `ngDoCheck()` | :question: | :x: | :question: |
 | `ngAfterContentInit()` | :heavy_check_mark: | :x: | :question: |
-| `ngAfterContentChecked()` | :question: | :x: | :question: |
 | `ngAfterViewInit()` | :heavy_check_mark: | :x: | :question: |
-| `ngAfterViewChecked()`| :question: | :x: | :question: |
 | `ngOnDestroy()`| :heavy_check_mark: | :x: | :question: |
+| `ngAfterViewChecked()`| :x: | :x: | :question: |
+| `ngDoCheck()` | :x: | :x: | :question: |
+| `ngAfterContentChecked()` | :x: | :x: | :question: |
 | | | | |
 | | | | |
 | **Template syntax**| | | |
@@ -74,17 +74,10 @@
 | `[ngStyle]` | :heavy_check_mark: | :x: | :question: |
 | | | | |
 | | | | |
-| **Dependency injection**| | | |
-| :question: | :heavy_check_mark: | :question: | :question: |
+| **Dependency injection** | :heavy_check_mark: | :question: | :question: |
 | | | | |
+| **Routing and navigation** | :heavy_check_mark: | :question: | :question: |
 | | | | |
-| **Routing and navigation**| | | |
-| :question: | :heavy_check_mark: | :question: | :question: |
+| **Directive configuration** | :question: | :question: | :question: |
 | | | | |
-| | | | |
-| **Directive configuration**| | | |
-| :question: | :question: | :question: | :question: |
-| | | | |
-| | | | |
-| **NgModules**| | | |
-| :question: | :x: | :x: | :x: |
+| **NgModules**| :x: | :x: | :x: |
