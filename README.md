@@ -69,10 +69,10 @@
 | `*myUnless="myExpression"` | :heavy_check_mark: | :x: | :question: |
 | `Card No.: {{cardNumber` &#124; `myCardNumberFormatter}}`| :heavy_check_mark: | :x: | :question: |
 | `Employer: {{employer?.companyName}}`| :heavy_check_mark: | :x: | :question: |
+| `<ng-template>`| :heavy_check_mark: | :x: | :question: |
+| `<ng-content>`| :heavy_check_mark: | :x: | :question: |
 | `<svg:rect x="0" y="0" width="100" height="100"/>`| :question: | :x: | :question: |
 | `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>`<br/>`</svg>`| :question: | :x: | :question: |
-| `<ng-template>`| :heavy_check_mark: | :x: | :question: |
-| `<ng-content>`| ::heavy_check_mark: | :x: | :question: |
 | `<ng-container>`| :question: | :x: | :question: |
 | `<ng-container *ngTemplateOutlet>`| :question: | :x: | :question: |
 | `(keydown.enter.esc)="bar($event)"`| :question: | :x: | :question: |
@@ -91,6 +91,23 @@
 | `[ngClass]` | :heavy_check_mark: | :x: | :question: |
 | `[ngStyle]` | :heavy_check_mark: | :x: | :question: |
 | `<ng-template [ngIf]="condition">` | :question: | :x: | :question: |
+| | | | |
+| | | | |
+| **Built-in pipes**| | | |
+| `{{ observableOrPromise` &#124; `async }}`| :heavy_check_mark: | :x: | :question: |
+| `{{ value_expression` &#124; `json }}`| :heavy_check_mark: | :x: | :question: |
+| `{{ value_expression` &#124; `uppercase }}`| :heavy_check_mark: | :x: | :question: |
+| `{{ value_expression` &#124; `lowercase }}` | :heavy_check_mark: | :x: | :question: |
+| `{{ input_expression` &#124; `keyvalue }}` | :heavy_check_mark: | :x: | :question: |
+| `{{ value_expression` &#124; `number }}`| :question: | :x: | :question: |
+| `{{ value_expression` &#124; `percent}}`| :question: | :x: | :question: |
+| `{{ value_expression` &#124; `uppercase }}`| :question: | :x: | :question: |
+| `{{ value_expression` &#124; `currency }}` | :question: | :x: | :question: |
+| `{{ value_expression` &#124; `i18nPlural }}` | :question: | :x: | :question: |
+| `{{ value_expression` &#124; `slice }}` | :question: | :x: | :question: |
+| `{{ value_expression` &#124; `date }}` | :question: | :x: | :question: |
+| `{{ value_expression` &#124; `i18nSelect }}` | :question: | :x: | :question: |
+| `{{ value_expression` &#124; `titlecase }}` | :question: | :x: | :question: |
 | | | | |
 | | | | |
 | **Dependency injection** | :heavy_check_mark: | :question: | :question: |
