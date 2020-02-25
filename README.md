@@ -47,9 +47,9 @@
 | `ngOnInit()` | :heavy_check_mark: | :x: | :question: |
 | `ngDoCheck()` | :question: | :x: | :question: |
 | `ngAfterContentInit()` | :heavy_check_mark: | :x: | :question: |
-| `ngAfterContentChecked()` | :heavy_check_mark: | :x: | :question: |
+| `ngAfterContentChecked()` | :question: | :x: | :question: |
 | `ngAfterViewInit()` | :heavy_check_mark: | :x: | :question: |
-| `ngAfterViewChecked()`| :heavy_check_mark: | :x: | :question: |
+| `ngAfterViewChecked()`| :question: | :x: | :question: |
 | `ngOnDestroy()`| :heavy_check_mark: | :x: | :question: |
 
 ### Template syntax
@@ -80,9 +80,9 @@
 | `[ngStyle]` | :heavy_check_mark: | :x: | :question: |
 
 ### Dependency injection configuration
-| Feature | Description | Planned | Implemented | Link |
+| Feature | Planned | Implemented | Link |
 | --- | ---| --- | --- |
-| `Depency Injection` | --- | :heavy_check_mark: | :question: | :question: |
+| `Depency Injection` | :heavy_check_mark: | :question: | :question: |
 
 ### Routing and navigation
 | Feature | Planned | Implemented | Link |
