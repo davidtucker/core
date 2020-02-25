@@ -40,7 +40,7 @@
 | `@ContentChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
-| `@Query(myPredicate)`| :star: | :x: | :question: |		
+| `@Query(myPredicate)`| :star: :question: | :x: | :question: |		
 | | | | |
 | | | | |
 | **Component lifecycle hooks**| | | |
@@ -110,7 +110,7 @@
 | | | | |
 | | | | |
 | **State** | | | |
-| `useState(0)` | :star: | :x: | :question: |
+| `useState(0)` | :star: :question: | :x: | :question: |
 | | | | |
 | | | | |
 | **Dependency injection** | :heavy_check_mark: | :question: | :question: |
