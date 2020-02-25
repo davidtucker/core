@@ -6,7 +6,6 @@
 | `@Directive()`| :question: | :x: | :question: |
 | `@Pipe()`| :question: | :x: | :question: |
 | `@Injectable()`| :question: | :x: | :question: |
-| Feature | Planned | Implemented | Link |
 | | | | |
 | Component configuration | | | |
 | `selector` | :heavy_check_mark: | :x: | :question: |
