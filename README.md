@@ -1,5 +1,11 @@
 # core
 
+<style>
+table {
+    width:100%;
+}
+</style>
+
 ### Component Class decorator
 | Feature | Planned | Implemented | Link |
 | --- | ---| --- | --- |
