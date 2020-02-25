@@ -108,13 +108,17 @@
 | `{{ value_expression` &#124; `titlecase }}` | :question: | :x: | :question: |
 | | | | |
 | | | | |
-| **State** | :heavy_check_mark: | :question: | :question: |
+| **State** | | | |
 | `useState(0)` | :question: | :x: | :question: |
+| | | | |
 | | | | |
 | **Dependency injection** | :heavy_check_mark: | :question: | :question: |
 | | | | |
+| | | | |
 | **Routing and navigation** | :heavy_check_mark: | :question: | :question: |
 | | | | |
+| | | | |
 | **Directive configuration** | :question: | :question: | :question: |
+| | | | |
 | | | | |
 | **NgModules**| :x: | :x: | :x: |
