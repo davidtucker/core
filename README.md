@@ -1,8 +1,7 @@
 ## Pregular
 
-#### Feature list
-
-| Icon | Meaning | 
+#### Meanings
+| Icon |  | 
 | --- | --- |
 | :heavy_check_mark: | will implemented | 
 | :alarm_clock: | wil implemented on stable architecture | 
@@ -10,6 +9,7 @@
 | :question: | not sure if this will be implemented | 
 | :x: | will not be implemented | 
 
+#### Features
 | Feature | Planned | Implemented |
 | --- | ---| --- |
 | **Component Class decorator** | | |
