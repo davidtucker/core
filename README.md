@@ -5,7 +5,7 @@
 | --- | --- |
 | :heavy_check_mark: | will implemented | 
 | :alarm_clock: | wil implemented on stable architecture | 
-| :star: | new feature | 
+| :star::alarm_clock: | new feature | 
 | :question: | not sure if this will be implemented | 
 | :x: | will not be implemented | 
 
@@ -51,7 +51,7 @@
 | `@ContentChildren(myPredicate)`| :heavy_check_mark: | No |
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | No |
 | `@ViewChildren(myPredicate)`| :heavy_check_mark: | No |
-| `@Query(myPredicate)`| :star: | No |
+| `@Query(myPredicate)`| :star::alarm_clock: | No |
 | | | |
 | | | |
 | **Component lifecycle hooks**| | |
@@ -127,11 +127,11 @@
 | | | |
 | | | |
 | **State** | | |
-| `useState(0)` | :star: | No |
-| **Routing and navigation** | :heavy_check_mark: | No |
+| `useState(0)` | :star::alarm_clock: | No |
+| **Routing and navigation** | :alarm_clock: | No |
 | | | |
 | | | |
-| **Directive configuration** | :question: | No |
+| **Directive configuration** | :alarm_clock: | No |
 | | | |
 | | | |
 | **NgModules**| :x: | - |
