@@ -5,7 +5,7 @@
 | --- | --- |
 | :heavy_check_mark: | will implemented | 
 | :alarm_clock: | wil implemented on stable architecture | 
-| :star::alarm_clock: | new feature | 
+| :star: | new feature | 
 | :question: | not sure if this will be implemented | 
 | :x: | will not be implemented | 
 
