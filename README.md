@@ -51,7 +51,7 @@
 | `@ContentChildren(myPredicate)`| :heavy_check_mark: | :x: |
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | :x: |
 | `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: |
-| `@Query(myPredicate)`| :star: | :x: |		
+| `@Query(myPredicate)`| :star: | :x: |
 | | | |
 | | | |
 | **Component lifecycle hooks**| | |
@@ -119,13 +119,15 @@
 | `{{ value_expression` &#124; `titlecase }}` | :alarm_clock: | :x: |
 | | | |
 | | | |
+| **Dependency injection decorators** | | |
+| `@Self()` | :alarm_clock: | :x: |
+| `@Optional()` | :alarm_clock: | :x: |
+| `@SkipSelf()` | :alarm_clock: | :x: |
+| `@Host()` | :alarm_clock: | :x: |
+| | | |
+| | | |
 | **State** | | |
 | `useState(0)` | :star: | :x: |
-| | | |
-| | | |
-| **Dependency injection** | :heavy_check_mark: | :question: |
-| | | |
-| | | |
 | **Routing and navigation** | :heavy_check_mark: | :question: |
 | | | |
 | | | |
