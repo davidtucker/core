@@ -4,8 +4,8 @@
 
 | Icon | Meaning | 
 | --- | --- |
-| :alarm_clock: | will implemented | 
-| :heavy_check_mark: | wil implemented on stable architecture | 
+| :heavy_check_mark: | will implemented | 
+| :alarm_clock: | wil implemented on stable architecture | 
 | :star: | new feature | 
 | :question: | not sure if this will be implemented | 
 | :x: | will not be implemented | 
