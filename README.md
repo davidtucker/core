@@ -3,9 +3,9 @@
 | --- | ---| --- | --- |
 | **Component Class decorator** | | | |
 | `@Component()` | :heavy_check_mark: | :x: | :question: |
-| `@Directive()`| :question: | :x: | :question: |
-| `@Pipe()`| :question: | :x: | :question: |
-| `@Injectable()`| :question: | :x: | :question: |
+| `@Injectable()`| :heavy_check_mark: | :x: | :question: |
+| `@Directive()`| :alarm_clock: | :x: | :question: |
+| `@Pipe()`| :alarm_clock: | :x: | :question: |
 | | | | |
 | | | | |
 | **Component configuration** | | | |
@@ -40,7 +40,7 @@
 | `@ContentChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChild(myPredicate)`| :heavy_check_mark: | :x: | :question: |
 | `@ViewChildren(myPredicate)`| :heavy_check_mark: | :x: | :question: |
-| `@Query(myPredicate)`| :star: :question: | :x: | :question: |		
+| `@Query(myPredicate)`| :star: | :x: | :question: |		
 | | | | |
 | | | | |
 | **Component lifecycle hooks**| | | |
@@ -70,12 +70,12 @@
 | `Employer: {{employer?.companyName}}`| :heavy_check_mark: | :x: | :question: |
 | `<ng-template>`| :heavy_check_mark: | :x: | :question: |
 | `<ng-content>`| :heavy_check_mark: | :x: | :question: |
-| `<svg:rect x="0" y="0" width="100" height="100"/>`| :question: | :x: | :question: |
-| `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>`<br/>`</svg>`| :question: | :x: | :question: |
-| `<ng-container>`| :question: | :x: | :question: |
-| `<ng-container *ngTemplateOutlet>`| :question: | :x: | :question: |
-| `(keydown.enter.esc)="bar($event)"`| :question: | :x: | :question: |
-| `(ngSubmit)="bar(...)"`| :question: | :x: | :question: |
+| `<svg:rect x="0" y="0" width="100" height="100"/>`| :alarm_clock: | :x: | :question: |
+| `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>`<br/>`</svg>`| :alarm_clock: | :x: | :question: |
+| `<ng-container>`| :alarm_clock: | :x: | :question: |
+| `<ng-container *ngTemplateOutlet>`| :alarm_clock: | :x: | :question: |
+| `(keydown.enter.esc)="bar($event)"`| :alarm_clock: | :x: | :question: |
+| `(ngSubmit)="bar(...)"`| :alarm_clock: | :x: | :question: |
 | | | | |
 | | | | |
 | **Built-in directives**| | | |
@@ -98,19 +98,19 @@
 | `{{ value_expression` &#124; `uppercase }}`| :heavy_check_mark: | :x: | :question: |
 | `{{ value_expression` &#124; `lowercase }}` | :heavy_check_mark: | :x: | :question: |
 | `{{ input_expression` &#124; `keyvalue }}` | :heavy_check_mark: | :x: | :question: |
-| `{{ value_expression` &#124; `number }}`| :question: | :x: | :question: |
-| `{{ value_expression` &#124; `percent}}`| :question: | :x: | :question: |
-| `{{ value_expression` &#124; `uppercase }}`| :question: | :x: | :question: |
-| `{{ value_expression` &#124; `currency }}` | :question: | :x: | :question: |
-| `{{ value_expression` &#124; `i18nPlural }}` | :question: | :x: | :question: |
-| `{{ value_expression` &#124; `slice }}` | :question: | :x: | :question: |
-| `{{ value_expression` &#124; `date }}` | :question: | :x: | :question: |
-| `{{ value_expression` &#124; `i18nSelect }}` | :question: | :x: | :question: |
-| `{{ value_expression` &#124; `titlecase }}` | :question: | :x: | :question: |
+| `{{ value_expression` &#124; `number }}`| :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `percent}}`| :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `uppercase }}`| :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `currency }}` | :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `i18nPlural }}` | :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `slice }}` | :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `date }}` | :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `i18nSelect }}` | :alarm_clock: | :x: | :question: |
+| `{{ value_expression` &#124; `titlecase }}` | :alarm_clock: | :x: | :question: |
 | | | | |
 | | | | |
 | **State** | | | |
-| `useState(0)` | :star: :question: | :x: | :question: |
+| `useState(0)` | :star: | :x: | :question: |
 | | | | |
 | | | | |
 | **Dependency injection** | :heavy_check_mark: | :question: | :question: |
