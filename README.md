@@ -89,7 +89,6 @@
 | `[ngSwitch], [ngSwitchCase], ...` | :heavy_check_mark: | :x: | :question: |
 | `[ngClass]` | :heavy_check_mark: | :x: | :question: |
 | `[ngStyle]` | :heavy_check_mark: | :x: | :question: |
-| `<ng-template [ngIf]="condition">` | :question: | :x: | :question: |
 | | | | |
 | | | | |
 | **Built-in pipes**| | | |
