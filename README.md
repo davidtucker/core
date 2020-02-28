@@ -131,8 +131,9 @@
 | `@Host()` | :alarm_clock: | No |
 | | | |
 | | | |
-| **State** | | |
-| `useState(0)` | :star::alarm_clock: | No |
+| **State** | :alarm_clock: | No |
+| | | |
+| | | |
 | **Routing and navigation** | :alarm_clock: | No |
 | | | |
 | | | |
