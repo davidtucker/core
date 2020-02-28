@@ -4,7 +4,7 @@
 | Icon |  | 
 | --- | --- |
 | :heavy_check_mark: | will implemented | 
-| :alarm_clock: | wil implemented on stable architecture | 
+| :alarm_clock: | will developed when first alpha is released | 
 | :star: | new feature | 
 | :question: | not sure if this will be implemented | 
 | :x: | will not be implemented | 
@@ -14,21 +14,21 @@
 | --- | ---| --- |
 | **Component Class decorator** | | |
 | `@Component()` | :heavy_check_mark: | No |
-| `@Injectable()`| :heavy_check_mark: | No |
+| `@Injectable()`| :alarm_clock: | No |
 | `@Directive()`| :alarm_clock: | No |
 | `@Pipe()`| :alarm_clock: | No |
 | | | |
 | | | |
 | **Component configuration** | | |
 | `selector` | :heavy_check_mark: | No |
-| `host` | :heavy_check_mark: | No |
 | `template` | :heavy_check_mark: | No |
 | `templateUrl` | :heavy_check_mark: | No |
 | `styles` | :heavy_check_mark: | No |
 | `styleUrls` | :heavy_check_mark: | No |
-| `exportAs` | :heavy_check_mark: | No |
 | `encapsulation` | :heavy_check_mark: | No |
 | `interpolation` | :heavy_check_mark: | No |
+| `host` | :alarm_clock: | No |
+| `exportAs` | :alarm_clock: | No |
 | `inputs` | :question: | No |
 | `outputs` | :question: | No |
 | `providers` | :question: | No |
@@ -45,42 +45,44 @@
 | **Class field decorators for components** | | |
 | `@Input()` | :heavy_check_mark: | No |
 | `@Output()`| :heavy_check_mark: | No |
-| `@HostBinding('class.valid')`| :heavy_check_mark: | No |
-| `@HostListener('click', ['$event'])`| :heavy_check_mark: | No |
-| `@ContentChild(myPredicate)`| :heavy_check_mark: | No |
-| `@ContentChildren(myPredicate)`| :heavy_check_mark: | No |
-| `@ViewChild(myPredicate)`| :heavy_check_mark: | No |
-| `@ViewChildren(myPredicate)`| :heavy_check_mark: | No |
+| `@HostBinding('class.valid')`| :alarm_clock: | No |
+| `@HostListener('click', ['$event'])`| :alarm_clock: | No |
+| `@ContentChild(myPredicate)`| :alarm_clock: | No |
+| `@ContentChildren(myPredicate)`| :alarm_clock: | No |
+| `@ViewChild(myPredicate)`| :alarm_clock: | No |
+| `@ViewChildren(myPredicate)`| :alarm_clock: | No |
 | `@Query(myPredicate)`| :star::alarm_clock: | No |
+| `@On('click .foo')`| :star::alarm_clock: | No |
+| `@Route('/name/{{value}}', myPredicate)`| :star::alarm_clock: | No |
 | | | |
 | | | |
 | **Component lifecycle hooks**| | |
 | `constructor()`| :heavy_check_mark: | No |
 | `ngOnChanges(changeRecord)` | :heavy_check_mark: | No |
 | `ngOnInit()` | :heavy_check_mark: | No |
-| `ngAfterContentInit()` | :heavy_check_mark: | No |
 | `ngAfterViewInit()` | :heavy_check_mark: | No |
 | `ngOnDestroy()`| :heavy_check_mark: | No |
+| `ngAfterContentInit()` | :alarm_clock: | No |
 | `ngAfterViewChecked()`| :x: | - |
 | `ngDoCheck()` | :x: | - |
 | `ngAfterContentChecked()` | :x: | - |
 | | | |
 | | | |
 | **Template syntax**| | |
-| `[value]="firstName"`| :heavy_check_mark: | No |
-| `[attr.role]="myAriaRole"`| :heavy_check_mark: | No |
-| `[class.extra-sparkle]="isDelightful"`| :heavy_check_mark: | No |
-| `[style.width.px]="mySize"`| :heavy_check_mark: | No |
-| `(click)="foo($event)"`| :heavy_check_mark: | No |
-| `<div title="Hello {{ponyName}}">`| :heavy_check_mark: | No |
 | `Hello {{ponyName}}`| :heavy_check_mark: | No |
-| `Sum{{1 + 1 + getVal()}}`| :heavy_check_mark: | No |
-| `[(title)]="name"`| :heavy_check_mark: | No |
-| `<video #movieplayer`<br/>`<button (click)="movieplayer.play()">`<br/>`</video>`| :heavy_check_mark: | No |
-| `*myUnless="myExpression"` | :heavy_check_mark: | No |
-| `Employer: {{employer?.companyName}}`| :heavy_check_mark: | No |
-| `<ng-template>`| :heavy_check_mark: | No |
-| `<ng-content>`| :heavy_check_mark: | No |
+| `<div title="Hello {{ponyName}}">`| :heavy_check_mark: | No |
+| `(click)="foo($event)"`| :heavy_check_mark: | No |
+| `[value]="firstName"`| :alarm_clock: | No |
+| `[attr.role]="myAriaRole"`| :alarm_clock: | No |
+| `[class.extra-sparkle]="isDelightful"`| :alarm_clock: | No |
+| `[style.width.px]="mySize"`| :alarm_clock: | No |
+| `Sum{{1 + 1 + getVal()}}`| :alarm_clock: | No |
+| `[(title)]="name"`| :alarm_clock: | No |
+| `<video #movieplayer`<br/>`<button (click)="movieplayer.play()">`<br/>`</video>`| :alarm_clock: | No |
+| `*myUnless="myExpression"` | :alarm_clock: | No |
+| `Employer: {{employer?.companyName}}`| :alarm_clock: | No |
+| `<ng-template>`| :alarm_clock: | No |
+| `<ng-content>`| :alarm_clock: | No |
 | `<svg:rect x="0" y="0" width="100" height="100"/>`| :alarm_clock: | No |
 | `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>`<br/>`</svg>`| :alarm_clock: | No |
 | `<ng-container>`| :alarm_clock: | No |
@@ -92,22 +94,23 @@
 | **Built-in directives**| | |
 | `*ngIf="showSection"`| :heavy_check_mark: | No |
 | `*ngIf="condition; else elseBlock"`| :heavy_check_mark: | No |
-| `*ngIf="condition; then thenBlock else elseBlock"`| :heavy_check_mark: | No |
-| `*ngFor="let item of list; index as i"`| :heavy_check_mark: | No |
-| `*ngFor="let item of list; first as isFirst"`| :heavy_check_mark: | No |
-| `*ngFor="let item of list; even as isEven"`| :heavy_check_mark: | No |
-| `*ngFor="let item of list; odd as isOdd"`| :heavy_check_mark: | No |
-| `[ngSwitch], [ngSwitchCase], ...` | :heavy_check_mark: | No |
-| `[ngClass]` | :heavy_check_mark: | No |
-| `[ngStyle]` | :heavy_check_mark: | No |
+| `*ngIf="condition; then thenBlock else elseBlock"`| :alarm_clock: | No |
+| `*ngFor="let item of list; index as i"`| :alarm_clock: | No |
+| `*ngFor="let item of list; first as isFirst"`| :alarm_clock: | No |
+| `*ngFor="let item of list; even as isEven"`| :alarm_clock: | No |
+| `*ngFor="let item of list; odd as isOdd"`| :alarm_clock: | No |
+| `*ngFor="let item of items; index as i; trackBy: trackByFn`| :alarm_clock: | No |
+| `[ngSwitch], [ngSwitchCase], ...` | :alarm_clock: | No |
+| `[ngClass]` | :alarm_clock: | No |
+| `[ngStyle]` | :alarm_clock: | No |
 | | | |
 | | | |
 | **Built-in pipes**| | |
 | `{{ observableOrPromise` &#124; `async }}`| :heavy_check_mark: | No |
-| `{{ value_expression` &#124; `json }}`| :heavy_check_mark: | No |
-| `{{ value_expression` &#124; `uppercase }}`| :heavy_check_mark: | No |
-| `{{ value_expression` &#124; `lowercase }}` | :heavy_check_mark: | No |
-| `{{ input_expression` &#124; `keyvalue }}` | :heavy_check_mark: | No |
+| `{{ value_expression` &#124; `json }}`| :alarm_clock: | No |
+| `{{ value_expression` &#124; `uppercase }}`| :alarm_clock: | No |
+| `{{ value_expression` &#124; `lowercase }}` | :alarm_clock: | No |
+| `{{ input_expression` &#124; `keyvalue }}` | :alarm_clock: | No |
 | `{{ value_expression` &#124; `number }}`| :alarm_clock: | No |
 | `{{ value_expression` &#124; `percent}}`| :alarm_clock: | No |
 | `{{ value_expression` &#124; `uppercase }}`| :alarm_clock: | No |
