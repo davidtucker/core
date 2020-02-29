@@ -17,7 +17,7 @@
 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark:|
 
 \* Indicates the current version of the browser<br>
-***In special cases lazy load polyfills for older browsers (+IE11 excluded) but not in first step pregular***
+***In special cases lazy load polyfills for older browsers (+IE11 excluded) but not in first step of pregular***
 
 #### Features
 | | Planned | Implemented |
