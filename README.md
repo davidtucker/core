@@ -7,6 +7,7 @@
 | :alarm_clock: | will developed when first alpha is released | 
 | :star: | new feature | 
 | :question: | not sure if this will be implemented | 
+| :warning: | experimental | 
 | :x: | will not be implemented | 
 
 #### Features
@@ -29,7 +30,7 @@
 | `interpolation` | :heavy_check_mark: | No |
 | `host` | :alarm_clock: | No |
 | `exportAs` | :alarm_clock: | No |
-| <details close><summary>`elementType`</summary><br><pre>@Component({<br>  selector: 'my-real-image-component'<br>  elementType: 'img'<br>})<br><br>`<img is="my-real-image-component" src="image/url.jpg">`</pre></details> | :star::alarm_clock: | No |
+| <details close><summary>`elementType`</summary><br><pre>@Component({<br>  selector: 'my-real-image-component'<br>  elementType: 'img'<br>})<br><br>`<img is="my-real-image-component" src="image/url.jpg">`</pre></details> | :star::alarm_clock::warning: | No |
 | `inputs` | :question: | No |
 | `outputs` | :question: | No |
 | `providers` | :question: | No |
@@ -52,9 +53,9 @@
 | `@ContentChildren(myPredicate)`| :alarm_clock: | No |
 | `@ViewChild(myPredicate)`| :alarm_clock: | No |
 | `@ViewChildren(myPredicate)`| :alarm_clock: | No |
-| <details close><summary>`@Query(myPredicate)`</summary><br>Alias for: `@ContentChild`, `@ContentChildren`, `@ViewChild` and `@ViewChildren`</details> | :star::alarm_clock: | No |
-| <details close><summary>`@On('click .foo')`</summary><br>(1) Defining an event with a selector in a class method<br>(2) Alias for `@HostBinding` => `@On('click')`</details> | :star::alarm_clock: | No |
-| `@Route('/name/{{value}}', myPredicate)`| :star::alarm_clock: | No |
+| <details close><summary>`@Query(myPredicate)`</summary><br>Alias for: `@ContentChild`, `@ContentChildren`, `@ViewChild` and `@ViewChildren`</details> | :star::alarm_clock::warning: | No |
+| <details close><summary>`@On('click .foo')`</summary><br>(1) Defining an event with a selector in a class method<br>(2) Alias for `@HostBinding` => `@On('click')`</details> | :star::alarm_clock::warning: | No |
+| <details close><summary>`@Route('/name/{{value}}', myPredicate, {name: 'myOutlet'})`</summary><br><pre>@Component({<br>  selector: 'some-component',<br>  template: <br>    `<router-outlet name="myOutlet"></router-outlet>`<br>})<br>class Foo {<br>  @Route('/name1/{{value}}', {name: 'myOutlet'}, BarComponent)<br>  route1 = 'myRoute1';<br>}</pre></details> | :star::alarm_clock::warning: | No |
 | | | |
 | | | |
 | **Component lifecycle hooks**| | |
@@ -84,7 +85,7 @@
 | `Employer: {{employer?.companyName}}`| :alarm_clock: | No |
 | `<ng-template>`| :alarm_clock: | No |
 | `<ng-content>`| :alarm_clock: | No |
-| `<router-outlet>`| :alarm_clock: | No |
+| `<router-outlet>`, `<router-outlet name="myOutlet">`| :alarm_clock: | No |
 | `<svg:rect x="0" y="0" width="100" height="100"/>`| :alarm_clock: | No |
 | `<svg>`<br/>`<rect x="0" y="0" width="100" height="100"/>`<br/>`</svg>`| :alarm_clock: | No |
 | `<ng-container>`| :alarm_clock: | No |
