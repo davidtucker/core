@@ -8,10 +8,19 @@
 | :star: | new feature | 
 | :question: | not sure if this will be implemented | 
 | :warning: | experimental | 
-| :x: | will not be implemented | 
+| :x: | will not be implemented |
+
+#### Browser Support
+
+| Chrome*| Firefox* | Edge | Safari* | IE11+ | Chrome Android* | Mobile Safari* |
+| --- | --- | --- | --- | --- | --- | --- |
+| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark:|
+
+\* Indicates the current version of the browser<br>
+***In special cases lazy load polyfills for older browsers (+IE11 excluded) but not in first step pregular***
 
 #### Features
-| Feature | Planned | Implemented |
+| | Planned | Implemented |
 | --- | ---| --- |
 | **Component Class decorator** | | |
 | `@Component()` | :heavy_check_mark: | No |
