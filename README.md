@@ -55,9 +55,15 @@
 | `@ContentChildren(myPredicate)`| :alarm_clock: | No |
 | `@ViewChild(myPredicate)`| :alarm_clock: | No |
 | `@ViewChildren(myPredicate)`| :alarm_clock: | No |
-| <details close><summary>`@Query(myPredicate)`</summary><br>Alias for: `@ContentChild`, `@ContentChildren`, `@ViewChild` and `@ViewChildren`</details> | :star::alarm_clock::warning: | No |
+| <details close><summary>`@Query(myPredicate)`</summary><br>Alias for:<br>`@ContentChild`, `@ContentChildren`, `@ViewChild` and `@ViewChildren`</details> | :star::alarm_clock::warning: | No |
 | <details close><summary>`@On('click .foo')`</summary><br>(1) Defining an event with a selector in a class method<br>(2) Alias for `@HostBinding` => `@On('click')`</details> | :star::alarm_clock::warning: | No |
 | <details close><summary>`@Route('/name/{{value}}', myPredicate, {name: 'myOutlet'})`</summary><br><pre>@Component({<br>  selector: 'some-component',<br>  template: <br>    `<router-outlet name="myOutlet"></router-outlet>`<br>})<br>class Foo {<br>  @Route('/name1/{{value}}', {name: 'myOutlet'}, BarComponent)<br>  route1 = 'myRoute1';<br>}</pre></details> | :star::alarm_clock::warning: | No |
+| | | |
+| | | |
+| **Built-in Services**| | |
+| `ElementRef, constructor(private elr: ElementRef)`| :heavy_check_mark: | No |
+| `TemplateRef` | :alarm_clock: | No |
+| `ViewContainerRef` | :alarm_clock: | No |
 | | | |
 | | | |
 | **Component lifecycle hooks**| | |
