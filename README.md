@@ -78,6 +78,12 @@
 | `ngAfterContentChecked()` | :x: | - |
 | | | |
 | | | |
+| **Built-in Services**| | |
+| `ElementRef`| :heavy_check_mark: | No |
+| `TemplateRef` | :alarm_clock: | No |
+| `ViewContainerRef` | :alarm_clock: | No |
+| | | |
+| | | |
 | **Template syntax**| | |
 | `Hello {{ponyName}}`| :heavy_check_mark: | No |
 | `<div title="Hello {{ponyName}}">`| :heavy_check_mark: | No |
@@ -139,6 +145,13 @@
 | `@SkipSelf()` | :alarm_clock: | No |
 | `@Host()` | :alarm_clock: | No |
 | `@Attribute()` | :alarm_clock: | No |
+| `@Inject(<any_token>)` | :alarm_clock: | No |
+| `@Inject(DOCUMENT)` | :alarm_clock: | No |
+| `@Inject(WINDOW)` | :alarm_clock: | No |
+| `@Inject(LOCATION)` | :alarm_clock: | No |
+| `@Inject(NAVIGATOR)` | :alarm_clock: | No |
+| `@Inject(HISTORY)` | :alarm_clock: | No |
+| `@Inject(LOCALSTORAGE)` | :alarm_clock: | No |
 | | | |
 | | | |
 | **State** | :alarm_clock: | No |
