@@ -147,11 +147,11 @@
 | `@Attribute()` | :alarm_clock: | No |
 | `@Inject(<any_token>)` | :alarm_clock: | No |
 | `@Inject(DOCUMENT)` | :alarm_clock: | No |
-| `@Inject(WINDOW)` | :alarm_clock: | No |
-| `@Inject(LOCATION)` | :alarm_clock: | No |
-| `@Inject(NAVIGATOR)` | :alarm_clock: | No |
-| `@Inject(HISTORY)` | :alarm_clock: | No |
-| `@Inject(LOCALSTORAGE)` | :alarm_clock: | No |
+| `@Inject(WINDOW)` | :star::alarm_clock: | No |
+| `@Inject(LOCATION)` | :star::alarm_clock: | No |
+| `@Inject(NAVIGATOR)` | :star::alarm_clock: | No |
+| `@Inject(HISTORY)` | :star::alarm_clock: | No |
+| `@Inject(LOCALSTORAGE)` | :star::alarm_clock: | No |
 | | | |
 | | | |
 | **State** | :alarm_clock: | No |
