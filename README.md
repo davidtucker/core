@@ -32,7 +32,7 @@
 | `interpolation` | :heavy_check_mark: | No |
 | `host` | :alarm_clock: | No |
 | `exportAs` | :alarm_clock: | No |
-| <details close><summary>`elementType`</summary><br><pre>@Component({<br>  selector: 'my-real-image-component'<br>  elementType: 'img'<br>})<br><br>`<img is="my-real-image-component" src="image/url.jpg">`<br><br> * Safari needs polyfill</pre></details> | :star::alarm_clock::warning: | No |
+| <details close><summary>`elementType`</summary><br><pre>@Component({<br>  selector: 'my-real-image-component'<br>  elementType: 'img'<br>})<br><br>`<img is="my-real-image-component" src="image/url.jpg">`<br><br>* Safari needs polyfill</pre></details> | :star::alarm_clock::warning: | No |
 | `inputs` | :question: | No |
 | `outputs` | :question: | No |
 | `providers` | :question: | No |
