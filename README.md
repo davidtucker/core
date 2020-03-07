@@ -45,8 +45,6 @@ The biggest and most exciting challenge will be to implement the Angular Templat
 
 ##### How could it be possible to implement directives with WebComponents?
 
-Ich möchte alles mit WebComponents hausmittel umsetzen. Daher ist is="ng-if" prädestiniert dafuer.
-
 There are two types of components in WebComponents. The classic one is to inherit directly from HTMLElement and define it with customElements.define:
 
 creation:
