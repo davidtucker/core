@@ -1,5 +1,6 @@
 ## :warning:Early Draft:warning:
 
+
 ## Pregular
 
 React has its Preact. It's time for Angular to get his Pregular! 
@@ -20,6 +21,9 @@ Almost every line of code which could be executed at runtime should be created o
 
 This way of creating code has many advantages. Huge runtime-libs, high memory usage, large bundled files, not optimize-code are practically almost nonexistent when the code generated at compile time. This is also called [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation). With this approach the [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compiler has less work to do, and that is damn good for performance.
 
+### What do I mean when I talk about full AOT support?
+
+This has nothing to do with Angular. It's more about the code being done at compiler time instead of runtime. Angular does it its way and Pregular will do it its way. 
 
 #### Do not reinvent the wheel and simply use the official interfaces of Angular.
 
@@ -157,10 +161,6 @@ my-box div {
 I don't want to talk about that yet but when the time comes, you will be the first to know but in short, it follows a different approach like [guess-js](https://github.com/guess-js/guess). The fetching of the files (HTML, CSS and Javascript) per Component by the Browser is much more fragmented or/and clustered. Interaction such as Events (Click, Hove) are also considered.
 
 The only thing in common with guess-js is that the evaluation is done by an AI.
-
-### What do I mean when I talk about full AOT support?
-
-This has nothing to do with Angular. It's more about the code being done at compiler time instead of runtime. Angular does it its way and Pregular will do it its way. 
 
 ### Conclusion
 
