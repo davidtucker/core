@@ -3,6 +3,11 @@
 
 ## Pregular
 
+React has its Preact. It's time for Angular to get his Pregular! 
+Full AOT support and as real WebComponents. Even the template syntax of Angular!
+
+***Source of quote: [Bitcollage](https://twitter.com/Bitcollage/status/1231293460268945408)***
+
 ### Motivation
 
 My main motivation for Pregular is [Preact](https://preactjs.com/) and the fact that I am fascinated about compilers (Babel, PostCSS), the love to Angular, Typescript, Reactive-Programming(RxJS) and of course to challenge myself. It is amazing that [Jason Miller](https://twitter.com/_developit) has developed against the interfaces of React and created an **extremely slim** version of React. Exactly the same I intend to do with Pregular.
