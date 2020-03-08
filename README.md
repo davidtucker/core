@@ -84,7 +84,7 @@ The shown concept (above) is on a very high abstract level. Of sure, in the impl
 
 At the end of the day it would be desirable if the Angular-Template-Syntax or other feature from Pregular could be used in other Projects, Frameworks or Libs. Therefore the development of Pregular is focused on [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling).
 
-There are many frameworks out there. Many are self-contained. You can't just use features in other Frameworks, Libs or Projects. This should be different with Pregular. It should be like lit-html which expressed it very well.
+There are many frameworks out there. Many are self-contained. You can't just use features from other Frameworks, Libs or Projects. This should be different with Pregular. It should be like lit-html which expressed it very well.
 
 >lit-html is like your very own template construction kit
 
@@ -98,7 +98,7 @@ Theoretically, it would be also possible to use Pregular to compile directly int
 
 Let me first explain how BabelJS and the TC39 committee work together and what my intention behind ***Proposal platform for Angular Components*** is.
 
-I assume that you have all heard of BabelJS and that it is used in almost every javascript project. With Babel you can use next generator Javascript today. I mean you can already test features in browsers that would normally not work. The best example is `async await`. This has been working long before native support.
+I assume that you have all heard of BabelJS and that it is used in almost every javascript project. With Babel you can use next generation Javascript today. I mean you can already test features in browsers that would normally not work. The best example is `async await`. This has been working long before native support.
 
 #### What does TC39 committee do?
 
@@ -117,7 +117,7 @@ First of all, I would like to make it clear that my intention is not to propose 
 
 I think with BabelJS and PostCSS you can implement ideas faster than with Typescript and Angular. The tooling, the developer experience around BabelJS and PostCSS is simply more easier and the community has much more experience with these two tools. You would have more devs who might work on this project.
 
-These are just two examples (see above code examples) what i already implemented with app-decorators and would like to port to Pregular.
+These are just two examples (see below code examples) what i already implemented with app-decorators and would like to port to Pregular.
 
 Maybe we can 'build a bridge' between Pregular and Angular just like BabelJS and TC39 do.
 
