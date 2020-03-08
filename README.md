@@ -5,7 +5,7 @@
 
 ### Motivation
 
-My main motivation is Preact, the fact that I am fascinated by compilers (Babel, PostCSS, etc), the love to Angular, Typescript, Reactive-Programming(RxJS) and of course to challenge myself. It is amazing that [Jason Miller](https://twitter.com/_developit) is developing against the interfaces of React and creating an **extremely slim** version of React. Exactly the same I intend to do with Pregular, developing against the Angular interfaces without inventing a new Framework-API.
+My main motivation is Preact then the fact that I am fascinated about compilers (Babel, PostCSS), the love to Angular, Typescript, Reactive-Programming(RxJS) and of course to challenge myself. It is amazing that [Jason Miller](https://twitter.com/_developit) has developed against the interfaces of React and created an **extremely slim** version of React. Exactly the same I intend to do with Pregular.
 
 >Pregular should be fast and extremely slim in terms of file size!
 
@@ -19,18 +19,18 @@ This way of creating code has many advantages. Huge runtime-libs, high memory us
 
 #### Do not reinvent the wheel and simply use the official interfaces of Angular.
 
-With Pregular, which also supports Typescript, you will have the same Angular Interfaces because i will use the Angular original ones. Internally I will map the interfaces to Pregular. The main difference is that the code is directly tanspiled to WebComponents without any dependency to Angular. It is just plain Javascript. 
+With Pregular you will have the same Angular Interfaces. I will use the Angular original ones. Internally I will map the interfaces to Pregular. The main difference is that the code will directly tanspiled to WebComponents without any dependency to Angular. It will just plain Javascript. 
 
-This procedure, compiling directly to WebComponents, has another advantage. You can use the written components in Pregular in every conceivable framework. It doesn't matter if it is used then in Angular, React or Vue.
+This procedure, also compiling directly to WebComponents has another advantage. You can use the written Pregular components in every conceivable Framework or Project. It does not matter if it is used React, Vue or Svelte.
 
 
 #### Of course you could say why you are not supporting angular/elements and why do you go to all this effort?
 
-Well let me explain. The Typescript Eco-System in terms of plugin development and how to traverse or manipulate easily an AST is hard and not well documented. Furthermore, Angular is huge, this will take me a very long time to understand what happening under the hood of Angular. Maybe in the end, when Pregular is implemented I will be much more smarter how Angular works because I will have to deal with it while implementing Pregular. Hopefully.
+Well let me explain. The Typescript Eco-System in terms of plugin development and how to traverse or manipulate easily an [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) is hard and not well documented. Furthermore, Angular is huge, this fact will take me a very long time to understand what happening under the hood of Angular. Maybe in the end, when Pregular is implemented I will be much more smarter on how Angular works because I will have to deal with it while implementing Pregular. Hopefully.
 
 #### Awesome toolings exists already. I do not have to write my own compiler, Angular-Template-Syntax-Parser or CSS-Parser.
 
-I decided to go with Babel/Typescript, [PostCSS-Compiler](http://api.postcss.org/AtRule.html#walkAtRules), angular-html-parser, lit-html and lit-html-server for [SSR](https://www.youtube.com/watch?v=GQzn7XRdzxY). I am very familiar with them. Especially with writing Babel and PostCSS Plugins. In the Angular-HTML-Parser library I have already looked at, is not magic. It is handcraft that I already know from Babel and PostCSS.
+I decided to go with Babel, Typescript (only typing system), PostCSS-Compiler, Angular-html-Parser, lit-html and lit-html-server for [SSR](https://www.youtube.com/watch?v=GQzn7XRdzxY). I am very familiar with them. Especially with writing Babel and PostCSS plugins. I have already loocked into Angular-HTML-Parser library, it is not magic, it is handcraft that I already know from Babel and PostCSS.
 
 ### There are some challenges that need to be solved.
 
@@ -43,44 +43,40 @@ The biggest and most exciting challenge will be to implement the Angular Templat
 >lit-html is extremely customizable and extensible. Directives customize how values are handled, allowing for asynchronous values, efficient keyed-repeats, error boundaries, and more. lit-html is like your very own template construction kit.<br>
 <br>***Source of quote: [lit-html.polymer-project.org](https://lit-html.polymer-project.org)***
 
-
-<br>
-
-##### How could it be possible to implement directives with WebComponents?
+#### How could it be possible to implement directives with WebComponents?
 
 There are two types of components in WebComponents. The classic one is to inherit directly from HTMLElement and define it with customElements.define:
 
-creation:
+**Creation**:
 ```js
 customElements.define('app-header', class extends HTMLElement {...});
 ```
-use:
+**Usage**:
 ```html
 <app-header></app-header>
 ```
 
-or secondly to inherit directly from an HTMLButtonElement, HTMLDivElement or HTMLImgElement and interact directly e.g. in the HTMLImageElement instance.
+and secondly to inherit directly from an e.g HTMLButtonElement, HTMLDivElement or HTMLImgElement and interact directly in the instance of HTMLImageElement.
 
-Creation
+**Creation**:
 ```js
 customElements.define('ng-if-img', class extends HTMLImageElement {...}, {extends: 'img'});
 ```
 
-use:
+**Usage**:
 ```html
 <img is="ng-if-img" ng-if-value="someValue" />
 ```
 
 As you can see, the second variant is ideal for Angular Directive with WebComponents. 
 
-The shown concept is on a very high abstract thought level experiment. In the implementation more will happen under the hood of Pregular. But basically after the second example shown (see above). I just wanted to show that even Angular directives can be implemented with WebComponent. 
+The shown concept (above) is on a very high abstract level. Of sure, in the implementation of Pregular there will more happens under the hood. I just wanted to show that even Angular directives can be implemented with real WebComponents. 
 
-
-### Independent modules
+### Independent packages
 
 At the end of the day it would be desirable if the Angular-Template-Syntax or other feature from Pregular could be used in other Projects, Frameworks or Libs. Therefore the development of Pregular is focused on [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling).
 
-There are many frameworks out there. Many are self-contained. You can't just use features in other frameworks, libs or projects. This should be different with Pregular. It's like lit-html expressed it very well.
+There are many frameworks out there. Many are self-contained. You can't just use features in other Frameworks, Libs or Projects. This should be different with Pregular. It's should be like lit-html expressed it very well.
 
 >lit-html is like your very own template construction kit
 
@@ -94,22 +90,22 @@ Theoretically, it would be also possible to use Pregular to compile directly int
 
 Let me first explain how BabelJS and the TC39 committee work together and what my intention behind ***Proposal platform for Angular Components*** is.
 
-I assume that you have all heard of BabelJS and that it is de-facto used in almost every javascript projects. With Babel you can use next generator Javascript today which is normally not supported in the Browser`s as long as they have not reached a certain [stage](https://github.com/tc39/proposals#stage-3) in [TC39](https://github.com/tc39/proposals).
+I assume that you have all heard of BabelJS and that it is used in almost every javascript project. With Babel you can use next generator Javascript today. I mean you can already test features in browsers that would normally not work. The best example is `async await`. This has been working long before native support.
 
 #### What does TC39 committee do?
 
->TC39 is the committee that evolves JavaScript. Its members are companies (among others, all major browser vendors). TC39 meets regularly, its meetings are attended by delegates that members send and by invited experts.<br><br>Each proposal for an ECMAScript feature goes through the following maturity stages, starting with stage 0. The progression from one stage to the next one must be approved by TC39.<br><br>
+>[TC39](https://github.com/tc39/proposals) is the committee that evolves JavaScript. Its members are companies (among others, all major browser vendors). TC39 meets regularly, its meetings are attended by delegates that members send and by invited experts.<br><br>Each proposal for an ECMAScript feature goes through the following maturity stages, starting with stage 0. The progression from one stage to the next one must be approved by TC39.<br><br>
 ***Source of Quote: [2ality.com](https://2ality.com/2015/11/tc39-process.html)***
 
 #### What is the relationship between BabelJS and TC39?
 
-If I'm not wrong, new Javascript features are only implemented by BabelJS if they reach Stage-1 in the TC39 committee. In short, TC39 invents new features, passes them to the next stage or discards them and BabelJS makes sure that it can be used in not supported Browser`s. This allows TC39 to detect design flaws early and even get feedback from the Community whether the new feature is accepted or not.
+New Javascript features are only implemented by BabelJS if they reach Stage-1 in the TC39 committee. In short, TC39 invents new features, passes them to the next stage or discards them and Babel makes sure that can be used in not supported Browser`s. This allows TC39 to detect design flaws early and even get feedback from the Community whether the new feature is accepted or not.
 
-<em>***Note:*** Exactly the same is applied to Typescript, only features will be implemented by Typescript which reached Stage-3 on TC39. There is one exception I can remember and that is the [@decorators](https://github.com/tc39/proposal-decorators) proposal.</em>
+<em>***Note:*** Exactly the same is applied to Typescript. Only features will be implemented by Typescript which reached Stage-3 on TC39. There is one exception I can remember and that is the [@decorators](https://github.com/tc39/proposal-decorators)(stage-2) proposal.</em>
 
 #### What does this have to do with Pregular?
 
-First of all, I would like to make it clear that my intention is not to propose e.g. a new decorator or a directive. These can already be implemented by Angular resources. Rather, it is about trying out completely new concepts. In an old project of mine [app-decorators](https://github.com/SerkanSipahi/app-decorators#itemjs) you can define real javascript events in CSS. A part of this feature is executed at compile time and the rest, a small runtime executes at runtime.
+First of all, I would like to make it clear that my intention is not to propose e.g. a new decorator or a directive. These can already be implemented by Angular resources. Rather, it is about trying out completely new concepts. In an old project of mine [app-decorators](https://github.com/SerkanSipahi/app-decorators#itemjs) you can define real javascript events (see below `@on load`, `@on click`, etc) in CSS. A part of this feature is executed at compile time and the rest, a small runtime executes at runtime.
 
 // Example CSS-File
 ```css
@@ -117,17 +113,17 @@ First of all, I would like to make it clear that my intention is not to propose 
 
 /** will be loaded on load event **/
 @on load {
-	@fetch path/to/on/load.css;
+  @fetch path/to/on/load.css;
 }
 
 /** will be loaded when clicked .up class **/
 @on click .up {
-	@fetch path/to/on/click/up.css;
+  @fetch path/to/on/click/up.css;
 }
 
 /** will be loaded when url changed **/
 @route hello/my/friend.html {
-	@fetch path/to/on/some/route/action.css;
+  @fetch path/to/on/some/route/action.css;
 }
 
 /** critical path (inline css will appear immediately) **/
@@ -148,15 +144,15 @@ my-box div {
 
 I think with BabelJS and PostCSS you can implement ideas faster than with Typescript and Angular. The tooling, the developer experience around BabelJS and PostCSS is simply more easier and the community has much more experience with these two tools. You wouuld have more devs who might work on this project.
 
-These are just two examples (see above code examples) what i already implemented with app-decorators.
+These are just two examples (see above code examples) what i already implemented with app-decorators and would like to port to Pregular.
 
 Maybe we can make a bridge between Pregular and Angular just like BabelJS and TC39 do.
 
 ### And what about AI-Based which you can see at the top of the github repo?
 
-I don't want to talk about that yet but when the time comes, you will be the first to know but in short, it follows a different approach like [guess-js](https://github.com/guess-js/guess). The fetching of the files (HTML, CSS and Javascript) per Component by the Browser is much more fragmented and clustered which is controlled by the AI based on Google-Analytics-Data.
+I don't want to talk about that yet but when the time comes, you will be the first to know but in short, it follows a different approach like [guess-js](https://github.com/guess-js/guess). The fetching of the files (HTML, CSS and Javascript) per Component by the Browser is much more fragmented and clustered. Interaction such as Events (Click, Hove) are also considered.
 
-The AI approach, just like guess-js, is intended to improve performance.
+The only thing in common with guess-js is that the evaluation is done by an AI.
 
 ### Conclusion
 
