@@ -5,7 +5,7 @@
 
 ### Motivation
 
-My main motivation is Preact then the fact that I am fascinated about compilers (Babel, PostCSS), the love to Angular, Typescript, Reactive-Programming(RxJS) and of course to challenge myself. It is amazing that [Jason Miller](https://twitter.com/_developit) has developed against the interfaces of React and created an **extremely slim** version of React. Exactly the same I intend to do with Pregular.
+My main motivation for Pregular is [Preact](https://preactjs.com/) and the fact that I am fascinated about compilers (Babel, PostCSS), the love to Angular, Typescript, Reactive-Programming(RxJS) and of course to challenge myself. It is amazing that [Jason Miller](https://twitter.com/_developit) has developed against the interfaces of React and created an **extremely slim** version of React. Exactly the same I intend to do with Pregular.
 
 >Pregular should be fast and extremely slim in terms of file size!
 
@@ -14,29 +14,29 @@ My main motivation is Preact then the fact that I am fascinated about compilers 
 
 Almost every line of code which could be executed at runtime should be created or optimized at [compile time](https://en.wikipedia.org/wiki/Compile_time).
 
-This way of creating code has many advantages. Huge runtime-libs, high memory usage, large bundled files, not optimize-code are practically almost does not exist when the code generated at compile time. This is also called [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation). With this approach the [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compiler has less work to do, and that is damn good for performance.
+This way of creating code has many advantages. Huge runtime-libs, high memory usage, large bundled files, not optimize-code are practically almost nonexistent when the code generated at compile time. This is also called [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation). With this approach the [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compiler has less work to do, and that is damn good for performance.
 
 
 #### Do not reinvent the wheel and simply use the official interfaces of Angular.
 
-With Pregular you will have the same Angular Interfaces. I will use the Angular original ones. Internally I will map the interfaces to Pregular. The main difference is that the code will directly tanspiled to WebComponents without any dependency to Angular. It will just plain Javascript. 
+With Pregular you will have the same Angular Interfaces. I will use the Angular original ones. Internally I will map the interfaces to Pregular. The main difference is that the code will directly transpiled to WebComponents without any dependency to Angular. It will just be plain Javascript. 
 
 This procedure, also compiling directly to WebComponents has another advantage. You can use the written Pregular components in every conceivable Framework or Project. It does not matter if it is used React, Vue or Svelte.
 
 
-#### Of course you could say why you are not supporting angular/elements and why do you go to all this effort?
+#### Of course you could say why you are not supporting angular/elements and why putting in all this effort for Pregular?
 
-Well let me explain. The Typescript Eco-System in terms of plugin development and how to traverse or manipulate easily an [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) is hard and not well documented. Furthermore, Angular is huge, this fact will take me a very long time to understand what happening under the hood of Angular. Maybe in the end, when Pregular is implemented I will be much more smarter on how Angular works because I will have to deal with it while implementing Pregular. Hopefully.
+Well let me explain. The Typescript Eco-System in terms of plugin development and how to traverse or manipulate easily an [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) is hard and not well documented. Furthermore, Angular is huge, this fact will take me a very long time to understand what is happening under the hood of Angular. Maybe in the end, when Pregular is implemented I will be much more smarter on how Angular works because I will have to deal with it while implementing Pregular. Hopefully.
 
-#### Awesome toolings exists already. I do not have to write my own compiler, Angular-Template-Syntax-Parser or CSS-Parser.
+#### Awesome toolings exist already. I do not have to write my own compiler, Angular-Template-Syntax-Parser or CSS-Parser.
 
-I decided to go with Babel, Typescript (only typing system), PostCSS-Compiler, Angular-html-Parser, lit-html and lit-html-server for [SSR](https://www.youtube.com/watch?v=GQzn7XRdzxY). I am very familiar with them. Especially with writing Babel and PostCSS plugins. I have already loocked into Angular-HTML-Parser library, it is not magic, it is handcraft that I already know from Babel and PostCSS.
+I decided to go with Babel, Typescript (only typing system), PostCSS-Compiler, Angular-html-Parser, lit-html and lit-html-server for [SSR](https://www.youtube.com/watch?v=GQzn7XRdzxY). I am very familiar with them. Especially with writing Babel and PostCSS plugins. I have already looked into Angular-HTML-Parser library, it is not magic, it is handcraft that I already know from Babel and PostCSS.
 
-### There are some challenges that need to be solved.
+### There are some challenges that need to be overcome.
 
 #### Using exactly the same Angular Template Syntax
 
-The biggest and most exciting challenge will be to implement the Angular Template Syntax in Pregular. Parsing should not be a problem, for this there is already the [Angular-Template-Parser](https://astexplorer.net/#/gist/e73a7230966cc85d54937b6511ae9c2f/4d0a4cfc03f38daf3d5c6882b7bbebb98a1fd569). In my point of view 2 things are important. ***First***, not to reinvent the wheel and to use an existing, flexible, fast rendering engine, e.g. [lit-html](https://lit-html.polymer-project.org/guide/rendering-templates) s tag function `html` and ***Secondly***, most important, writing an adapter that translates Angular-Template-Syntax into the desired rendering engine at compile time.
+The biggest and most exciting challenge will be to implement the Angular Template Syntax in Pregular. Parsing should not be a problem, because there is already the [Angular-Template-Parser](https://astexplorer.net/#/gist/e73a7230966cc85d54937b6511ae9c2f/4d0a4cfc03f38daf3d5c6882b7bbebb98a1fd569). In my point of view 2 things are important. ***First***, not to reinvent the wheel and to use an existing, flexible, fast rendering engine, e.g. [lit-html](https://lit-html.polymer-project.org/guide/rendering-templates) s tag function `html` and ***Secondly***, most important, writing an adapter that translates Angular-Template-Syntax into the desired rendering engine at compile time.
 
 #### lit-html is like your very own template construction kit
 
@@ -76,7 +76,7 @@ The shown concept (above) is on a very high abstract level. Of sure, in the impl
 
 At the end of the day it would be desirable if the Angular-Template-Syntax or other feature from Pregular could be used in other Projects, Frameworks or Libs. Therefore the development of Pregular is focused on [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling).
 
-There are many frameworks out there. Many are self-contained. You can't just use features in other Frameworks, Libs or Projects. This should be different with Pregular. It's should be like lit-html expressed it very well.
+There are many frameworks out there. Many are self-contained. You can't just use features in other Frameworks, Libs or Projects. This should be different with Pregular. It should be like lit-html which expressed it very well.
 
 >lit-html is like your very own template construction kit
 
@@ -94,12 +94,12 @@ I assume that you have all heard of BabelJS and that it is used in almost every 
 
 #### What does TC39 committee do?
 
->[TC39](https://github.com/tc39/proposals) is the committee that evolves JavaScript. Its members are companies (among others, all major browser vendors). TC39 meets regularly, its meetings are attended by delegates that members send and by invited experts.<br><br>Each proposal for an ECMAScript feature goes through the following maturity stages, starting with stage 0. The progression from one stage to the next one must be approved by TC39.<br><br>
+>[TC39](https://github.com/tc39/proposals) is the committee that evolves JavaScript. Their members are companies (among others, all major browser vendors). TC39 members meet regularly, and their meetings are attended by delegates who are sent and invited by experts.<br><br>Each proposal for an ECMAScript feature goes through the following maturity stages, starting with stage 0. The progression from one stage to the next one must be approved by TC39.<br><br>
 ***Source of Quote: [2ality.com](https://2ality.com/2015/11/tc39-process.html)***
 
 #### What is the relationship between BabelJS and TC39?
 
-New Javascript features are only implemented by BabelJS if they reach Stage-1 in the TC39 committee. In short, TC39 invents new features, passes them to the next stage or discards them and Babel makes sure that can be used in not supported Browser`s. This allows TC39 to detect design flaws early and even get feedback from the Community whether the new feature is accepted or not.
+New Javascript features are only implemented by BabelJS if they reach Stage-1 in the TC39 committee. In short, TC39 invents new features, passes them to the next stage or discards them and Babel makes sure that can be used in not supported Browsers. This allows TC39 to detect design flaws early and even get feedback from the Community whether the new feature is accepted or not.
 
 <em>***Note:*** Exactly the same is applied to Typescript. Only features will be implemented by Typescript which reached Stage-3 on TC39. There is one exception I can remember and that is the [@decorators](https://github.com/tc39/proposal-decorators)(stage-2) proposal.</em>
 
@@ -142,21 +142,21 @@ my-box div {
 }
 ```
 
-I think with BabelJS and PostCSS you can implement ideas faster than with Typescript and Angular. The tooling, the developer experience around BabelJS and PostCSS is simply more easier and the community has much more experience with these two tools. You wouuld have more devs who might work on this project.
+I think with BabelJS and PostCSS you can implement ideas faster than with Typescript and Angular. The tooling, the developer experience around BabelJS and PostCSS is simply more easier and the community has much more experience with these two tools. You would have more devs who might work on this project.
 
 These are just two examples (see above code examples) what i already implemented with app-decorators and would like to port to Pregular.
 
-Maybe we can make a bridge between Pregular and Angular just like BabelJS and TC39 do.
+Maybe we can 'build a bridge' between Pregular and Angular just like BabelJS and TC39 do.
 
 ### And what about AI-Based which you can see at the top of the github repo?
 
-I don't want to talk about that yet but when the time comes, you will be the first to know but in short, it follows a different approach like [guess-js](https://github.com/guess-js/guess). The fetching of the files (HTML, CSS and Javascript) per Component by the Browser is much more fragmented and clustered. Interaction such as Events (Click, Hove) are also considered.
+I don't want to talk about that yet but when the time comes, you will be the first to know but in short, it follows a different approach like [guess-js](https://github.com/guess-js/guess). The fetching of the files (HTML, CSS and Javascript) per Component by the Browser is much more fragmented or/and clustered. Interaction such as Events (Click, Hove) are also considered.
 
 The only thing in common with guess-js is that the evaluation is done by an AI.
 
 ### Conclusion
 
-This is not a design document. These are just my thoughts on how I imagine Pregular to be. Design documents follow as soon as they are worked out. Of course you are welcome to participate in this project. I would be happy about it.<br><br>
+This is not a design document. These are just my thoughts on how I imagine Pregular to be. Design documents follow as soon as they are worked out. Of course you are welcome to participate in this project. I would be happy about it.<br>
 
 ## Pregular Features
 
