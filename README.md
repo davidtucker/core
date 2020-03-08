@@ -21,6 +21,9 @@ Almost every line of code which could be executed at runtime should be created o
 
 This way of creating code has many advantages. Huge runtime-libs, high memory usage, large bundled files, not optimize-code are practically almost nonexistent when the code generated at compile time. This is also called [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation). With this approach the [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compiler has less work to do, and that is damn good for performance.
 
+### What do I mean when I talk about full AOT support?
+
+This has nothing to do with Angular. It's more about [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) approach. Angular does it in his way and Pregular in his way. 
 
 #### Do not reinvent the wheel and simply use the official interfaces of Angular.
 
