@@ -23,7 +23,7 @@ This way of creating code has many advantages. Huge runtime-libs, high memory us
 
 ### What do I mean when I talk about full AOT support?
 
-This has nothing to do with Angular. It's more about the code being done at compiler time instead of runtime. Angular does it its way and Pregular will do it its way. 
+This has nothing to do with Angular. It's more about [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) approach. Angular does it in his way and Pregular in his way. 
 
 #### Do not reinvent the wheel and simply use the official interfaces of Angular.
 
