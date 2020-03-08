@@ -114,7 +114,7 @@ First of all, I would like to make it clear that my intention is not to propose 
 
 I think with BabelJS and PostCSS you can implement ideas faster than with Typescript and Angular. The tooling, the developer experience around BabelJS and PostCSS is simply more easier and the community has much more experience with these two tools. You would have more devs who might work on this project.
 
-These are just two examples (see above code examples) what i already implemented with app-decorators and would like to port to Pregular.
+These are just two examples (see below code examples) what i already implemented with app-decorators and would like to port to Pregular.
 
 Maybe we can 'build a bridge' between Pregular and Angular just like BabelJS and TC39 do.
 
