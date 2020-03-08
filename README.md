@@ -95,7 +95,7 @@ Theoretically, it would be also possible to use Pregular to compile directly int
 
 Let me first explain how BabelJS and the TC39 committee work together and what my intention behind ***Proposal platform for Angular Components*** is.
 
-I assume that you have all heard of BabelJS and that it is used in almost every javascript project. With Babel you can use next generator Javascript today. I mean you can already test features in browsers that would normally not work. The best example is `async await`. This has been working long before native support.
+I assume that you have all heard of BabelJS and that it is used in almost every javascript project. With Babel you can use next generation Javascript today. I mean you can already test features in browsers that would normally not work. The best example is `async await`. This has been working long before native support.
 
 #### What does TC39 committee do?
 
