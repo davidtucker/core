@@ -81,7 +81,7 @@ The shown concept (above) is on a very high abstract level. Of sure, in the impl
 
 At the end of the day it would be desirable if the Angular-Template-Syntax or other feature from Pregular could be used in other Projects, Frameworks or Libs. Therefore the development of Pregular is focused on [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling).
 
-There are many frameworks out there. Many are self-contained. You can't just use features in other Frameworks, Libs or Projects. This should be different with Pregular. It should be like lit-html which expressed it very well.
+There are many frameworks out there. Many are self-contained. You can't just use features from other Frameworks, Libs or Projects. This should be different with Pregular. It should be like lit-html which expressed it very well.
 
 >lit-html is like your very own template construction kit
 
