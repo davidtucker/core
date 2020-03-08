@@ -1,6 +1,5 @@
 ## :warning:Early Draft:warning:
 
-
 ## Pregular
 
 React has its Preact. It's time for Angular to get his Pregular! 
@@ -158,6 +157,10 @@ my-box div {
 I don't want to talk about that yet but when the time comes, you will be the first to know but in short, it follows a different approach like [guess-js](https://github.com/guess-js/guess). The fetching of the files (HTML, CSS and Javascript) per Component by the Browser is much more fragmented or/and clustered. Interaction such as Events (Click, Hove) are also considered.
 
 The only thing in common with guess-js is that the evaluation is done by an AI.
+
+### What do I mean when I talk about full AOT support?
+
+This has nothing to do with Angular. It's more about the code being done at compiler time instead of runtime. Angular does it its way and Pregular will do it its way. 
 
 ### Conclusion
 
