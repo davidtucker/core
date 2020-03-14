@@ -28,9 +28,10 @@
     "build": "rm -rf ./lib && npm run build:types && npm run build:ts",
     "build:ts": "nodemon",
     "build:types": "tsc --emitDeclarationOnly",
+    "test-compile": "babel-node src --out-dir lib --extensions \".ts,.js\"",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "test-compile": "babel-node src --out-dir lib --extensions \".ts,.js\""
+    "lerna:init": "lerna init"
   },
   "devDependencies": {
     "@angular/compiler": "9.0.6",
@@ -43,6 +44,7 @@
     "@babel/preset-env": "7.8.7",
     "@babel/preset-typescript": "7.8.3",
     "@types/node": "13.9.1",
+    "lerna": "3.20.2",
     "nodemon": "2.0.2",
     "ts-node": "8.6.2",
     "tslib": "1.11.1",
