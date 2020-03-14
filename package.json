@@ -25,17 +25,25 @@
   "author": "Serkan Sipahi <serkan.sipahi@yahoo.de>",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js",
-    "start:dev": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./lib && npm run build:types && npm run build:ts",
+    "build:ts": "nodemon",
+    "build:types": "tsc --emitDeclarationOnly",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "test-compile": "babel-node src --out-dir lib --extensions \".ts,.js\""
   },
   "devDependencies": {
     "@angular/compiler": "9.0.6",
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/node": "7.8.7",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "7.8.3",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-typescript": "7.8.3",
     "@types/node": "13.9.1",
     "nodemon": "2.0.2",
-    "rimraf": "3.0.2",
-    "source-map-support": "0.5.16",
     "ts-node": "8.6.2",
     "tslib": "1.11.1",
     "typescript": "3.7.4"

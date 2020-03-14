@@ -1,4 +1,3 @@
-require('source-map-support').install();
 import * as t from '@angular/compiler/src/render3/r3_ast';
 import { parseTemplate as parse } from '@angular/compiler';
 
@@ -80,6 +79,7 @@ export class IvyAstVisitor implements t.Visitor<void> {
   }
 }
 
+debugger;
 const res = parse('<div *ngIf="a | b | async"><div></div></div>', 'template-name', {});
 const visitor = new IvyAstVisitor();
-t.visitAll(visitor, res.nodes);
+t.visitAll(visitor, res?.nodes);
