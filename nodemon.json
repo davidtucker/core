@@ -1,6 +1,9 @@
 {
-  "watch": ["src"],
+  "watch": ["./"],
   "ext": ".ts,.js",
-  "ignore": [],
+  "ignore": [
+    "build",
+    "node_modules"
+  ],
   "exec": "babel-node src --out-dir lib --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk"
 }

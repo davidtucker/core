@@ -1,6 +1,11 @@
+// typescript: http://karma-runner.github.io/4.0/config/configuration-file.html
+
 module.exports = function(config) {
     config.set({
-        frameworks: ["jasmine", "karma-typescript"],
+        frameworks: [
+            'jasmine',
+            'karma-typescript'
+        ],
         plugins: [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
@@ -12,12 +17,15 @@ module.exports = function(config) {
             'Opera',
         ],
         files: [
-            { pattern: "src/**/*.ts" }
+            { pattern: 'src/**/*.ts' }
         ],
         preprocessors: {
-            "**/*.ts": ["karma-typescript"]
+            '**/*.ts': ['karma-typescript']
         },
-        reporters: ["dots", "karma-typescript"],
+        reporters: [
+            'dots',
+            'karma-typescript'
+        ],
         autoWatch: true,
         singleRun: false,
         colors: true,

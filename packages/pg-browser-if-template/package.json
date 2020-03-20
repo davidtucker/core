@@ -1,5 +1,5 @@
 {
-  "name": "@pregular/core",
+  "name": "@pregular/if-template",
   "version": "0.0.0",
   "description": "Ai based, Fast, SSR, Lightweight Angular alternative with the same modern API thats compile directly to WebComponents",
   "keywords": [
@@ -30,12 +30,9 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build:clean": "rm -rf ./lib && rm -rf ./build",
     "lerna:init": "lerna init",
-    "test-compile": "babel src --out-dir lib --extensions \".ts,.js\"",
+    "test-compile": "babel-node src --out-dir lib --extensions \".ts,.js\"",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
-  },
-  "dependencies": {
-    "core-js": "3.6.4"
   },
   "devDependencies": {
     "@angular/compiler": "9.0.6",
@@ -61,10 +58,5 @@
     "ts-node": "8.6.2",
     "tslib": "1.11.1",
     "typescript": "3.7.4"
-  },
-  "browserslist": [
-    "last 1 version",
-    "not IE 11",
-    "not IE_Mob 11"
-  ]
+  }
 }
