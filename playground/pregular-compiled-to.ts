@@ -1,7 +1,16 @@
 import { PgIfTemplate } from "../packages/pg-browser-if-template/src";
 import { updateDom } from '../packages/pg-browser-dom-utils/src';
 
-export class AppComponent extends HTMLElement {
+interface ElementRef {
+  nativeElement: HTMLElement | null;
+}
+
+export class AppComponentCompiled extends HTMLElement {
+  constructor(public elementRef: ElementRef = {nativeElement: null}) {
+    super();
+    this.elementRef.nativeElement = this;
+  }
+
   private _pgVm_foo = ['pg-uuid-1', true];
   private set pgVm_foo(value: any) {
     this._pgVm_foo[1] = value;
@@ -31,8 +40,8 @@ export class AppComponent extends HTMLElement {
       this._pgIfTpl_2.setPgIf(this._pgVm_bar[1], () => {
         updateDom(this, '_pgVm_bar', this._pgVm_bar[1]);
       });
-    },
-    `<div id="pg-uuid-1">
+    },`
+    <div id="pg-uuid-1">
       <pg-vm id="pg-uuid-11"></pg-vm>
       <pg-if-tpl id="pg-uuid-2"></pg-if-tpl></pg-vm>
     </div>`);
@@ -42,15 +51,15 @@ export class AppComponent extends HTMLElement {
       this._pgIfTpl_3.setPgIf(this._pgVm_baz[1], () => {
         updateDom(this, '_pgVm_baz', this._pgVm_baz[1]);
       });
-    },
-    `<div id="pg-uuid-2">
+    },`
+    <div id="pg-uuid-2">
       <pg-if-tpl id="pg-uuid-3"></pg-if-tpl>
       <pg-vm id="pg-uuid-12"></pg-vm>
     </div>`);
 
   private _pgIfTpl_3 = new PgIfTemplate(
-    this, '_pgVm_baz', null, () => null,
-    `<div id="pg-uuid-3">
+    this, '_pgVm_baz', null, () => null,`
+    <div id="pg-uuid-3">
       <pg-vm id="pg-uuid-13"></pg-vm>
       <pg-if-tpl id="pg-uuid-4"></pg-if-tpl>
     </div>`);
@@ -72,5 +81,13 @@ export class AppComponent extends HTMLElement {
 
   connectedCallback() {
     this._renderTemplate();
+
+    /* this */ console.log(this);
+    /* into */console.log({
+      elementRef: this.elementRef,
+      foo: this._pgVm_foo[1],
+      bar: this._pgVm_bar[1],
+      baz: this._pgVm_baz[1],
+    });
   }
 }
