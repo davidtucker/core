@@ -1,4 +1,4 @@
 export class Foo<T> {
-  constructor(bar: T) {
+  constructor(public bar: T) {
   }
 }

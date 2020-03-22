@@ -1,37 +1,40 @@
-const { createDefaultConfig } = require('@open-wc/testing-karma');
-const merge = require('deepmerge');
-
-/**
- * filter / config.grep: npm run test -- --grep test/bar/*
- */
 module.exports = config => {
-    config.set(merge(createDefaultConfig(config), {
+    config.set({
         basePath: '',
         frameworks: [
-            'esm'
+            'esm',
+            'jasmine',
         ],
         files: [
             {
-                pattern: config.grep ? config.grep : 'packages/**/*.spec.ts',
+                pattern: config.grep ? config.grep : 'packages/**/*.ts',
                 type: 'module',
             },
             {
-                pattern: config.grep ? config.grep : 'test/**/*.spec.ts',
+                pattern: config.grep ? config.grep : 'test/**/*.ts',
                 type: 'module',
             },
+            {
+                pattern: config.grep ? config.grep : 'src/**/*.ts',
+                type: 'module',
+            },
+        ],
+        exclude: [
+            'packages/pg-node-compiler-template/**/*.ts'
         ],
         browsers: [
             'Chrome',
             'Firefox',
             'Opera',
-            // 'Safari',
+            'Safari',
         ],
         plugins: [
-            require.resolve('@open-wc/karma-esm'),
+            'karma-jasmine',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-opera-launcher',
             'karma-safari-launcher',
+            require.resolve('@open-wc/karma-esm'),
         ],
         esm: {
             babel: true,
@@ -43,13 +46,7 @@ module.exports = config => {
                     "@babel/preset-typescript",
                 ],
             },
-            babelModernExclude: [
-                'node_modules/*/**.js'
-            ],
-            babelExclude: [
-                'node_modules/*/**.js'
-            ],
         },
-    }));
+    });
     return config;
 };
