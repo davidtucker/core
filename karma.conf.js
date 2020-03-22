@@ -1,33 +1,55 @@
-// typescript: http://karma-runner.github.io/4.0/config/configuration-file.html
+const { createDefaultConfig } = require('@open-wc/testing-karma');
+const merge = require('deepmerge');
 
-module.exports = function(config) {
-    config.set({
+/**
+ * filter / config.grep: npm run test -- --grep test/bar/*
+ */
+module.exports = config => {
+    config.set(merge(createDefaultConfig(config), {
+        basePath: '',
         frameworks: [
-            'jasmine',
-            'karma-typescript'
+            'esm'
         ],
-        plugins: [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-opera-launcher',
+        files: [
+            {
+                pattern: config.grep ? config.grep : 'packages/**/*.spec.ts',
+                type: 'module',
+            },
+            {
+                pattern: config.grep ? config.grep : 'test/**/*.spec.ts',
+                type: 'module',
+            },
         ],
         browsers: [
             'Chrome',
             'Firefox',
             'Opera',
+            // 'Safari',
         ],
-        files: [
-            { pattern: 'src/**/*.ts' }
+        plugins: [
+            require.resolve('@open-wc/karma-esm'),
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-opera-launcher',
+            'karma-safari-launcher',
         ],
-        preprocessors: {
-            '**/*.ts': ['karma-typescript']
+        esm: {
+            babel: true,
+            nodeResolve: true,
+            fileExtensions: ['.ts'],
+            preserveSymlinks: true,
+            customBabelConfig: {
+                presets: [
+                    "@babel/preset-typescript",
+                ],
+            },
+            babelModernExclude: [
+                'node_modules/*/**.js'
+            ],
+            babelExclude: [
+                'node_modules/*/**.js'
+            ],
         },
-        reporters: [
-            'dots',
-            'karma-typescript'
-        ],
-        autoWatch: true,
-        singleRun: false,
-        colors: true,
-    });
+    }));
+    return config;
 };

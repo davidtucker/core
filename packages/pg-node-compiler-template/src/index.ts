@@ -99,4 +99,3 @@ const template = `
 const parsedTemplate = parseTemplate(template, 'template-name', {});
 const visitor = new IvyAstVisitor();
 t.visitAll(visitor, parsedTemplate.nodes);
-debugger;
