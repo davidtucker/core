@@ -1,6 +1,6 @@
 {
   "exclude": [
-    "karma.conf.js",
+    "karma.conf.ts",
     "build",
     "node_modules",
     "lib"

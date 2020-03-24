@@ -1,6 +1,7 @@
 import * as t from '@angular/compiler/src/render3/r3_ast';
 import { parseTemplate } from '@angular/compiler';
 
+debugger;
 export class IvyAstVisitor implements t.Visitor {
   result: any[] = [];
 

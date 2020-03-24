@@ -5,5 +5,6 @@
     "build",
     "node_modules"
   ],
-  "exec": "babel-node src --out-dir lib --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk"
+  "execBackup": "babel-node src --out-dir lib --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk",
+  "exec": "babel-node jasmine.node.config.js --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk"
 }
