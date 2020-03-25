@@ -29,14 +29,13 @@
     "build:clean": "rm -rf ./lib && rm -rf ./build",
     "build:ts": "nodemon",
     "build:types": "tsc --emitDeclarationOnly",
-    "lerna:init": "lerna init",
-    "test-compile": "babel src --out-dir lib --extensions \".ts,.js\"",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "test:browser": "karma start --coverage",
     "test:browser:watch": "karma start --coverage --auto-watch=true --single-run=false",
     "test:node": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules",
-    "test:node:watch": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --watch"
+    "test:node:watch": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --watch",
+    "test:node:inspect": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk"
   },
   "browserslist": [
     "last 1 version",
