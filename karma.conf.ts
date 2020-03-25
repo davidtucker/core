@@ -6,11 +6,8 @@ module.exports = config => {
       'jasmine',
     ],
     files: [
-      file('packages/**/*.ts', config),
-      file('test/**/*.ts', config),
-      file('src/**/*.ts', config),
+      file('packages/pg-browser-*/**/*.ts', config),
     ],
-    exclude: excludeFromTesting,
     browsers: [
       'Chrome',
       'Firefox',
@@ -48,7 +45,7 @@ module.exports = config => {
   return config;
 };
 
-const file = (filePattern: string, config: {grep: string}) => ({
+const file = (filePattern, config) => ({
   pattern: config.grep ? config.grep : filePattern,
   type: 'module',
 });
@@ -56,11 +53,6 @@ const file = (filePattern: string, config: {grep: string}) => ({
 const excludeFromCompilation = [
   '**/node_modules/**/*.js',
   '**/node_modules/**/*.ts',
-];
-
-// @todo: this can be remove when adjust test files to: foo.browser.spec.ts or foo.node.spec.ts
-const excludeFromTesting = [
-  'packages/pg-compiler-template/**/*.ts',
 ];
 
 const customPolyfills = [
