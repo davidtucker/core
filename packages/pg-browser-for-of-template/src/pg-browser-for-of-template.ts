@@ -1,4 +1,4 @@
-export class Index extends HTMLTemplateElement {}
+export class PgForOfTemplateElement extends HTMLTemplateElement {}
 // <ng-for id="ng-uuid-9"><!-- ul: [] --></ng-for>
 
 // <ul id="ng-uuid-8">

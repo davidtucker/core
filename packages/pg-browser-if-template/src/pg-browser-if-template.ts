@@ -1,5 +1,5 @@
 // @todo: rename later to PgIfDirective
-class PgHTMLTemplateElement extends HTMLTemplateElement {
+export class PgHTMLTemplateElement extends HTMLTemplateElement {
   static get observedAttributes() {
     return ['pg-if-trigger'];
   }
