@@ -29,13 +29,14 @@
     "build:clean": "rm -rf ./lib && rm -rf ./build",
     "build:ts": "nodemon",
     "build:types": "tsc --emitDeclarationOnly",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
-    "test:browser": "karma start --coverage",
+    "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
+    "test:browser:coverage": "karma start --coverage",
     "test:browser:watch": "karma start --coverage --auto-watch=true --single-run=false",
-    "test:node": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules",
-    "test:node:watch": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --watch",
-    "test:node:inspect": "babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk"
+    "test:node": "babel-node jasmine.node.config.ts --ignore node_modules",
+    "test:node:watch": "nodemon --exec babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --source-maps inline",
+    "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.ts --extensions \".ts,.js\" --ignore node_modules --source-maps inline --inspect-brk",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "browserslist": [
     "last 1 version",
@@ -58,6 +59,7 @@
     "@open-wc/karma-esm": "2.13.19",
     "@types/jasmine": "3.5.9",
     "@types/node": "13.9.1",
+    "concurrently": "5.1.0",
     "jasmine": "3.5.0",
     "jasmine-console-reporter": "3.1.0",
     "jasmine-core": "3.5.0",
