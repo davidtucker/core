@@ -11,8 +11,9 @@ module.exports = config => {
     browsers: [
       'Chrome',
       'Firefox',
-      'Opera',
       'Safari',
+      // 'Opera' Error compiling: [BABEL] Unknown version 67 of Opera
+      // 'Opera',
     ],
     plugins: [
       'karma-jasmine',
