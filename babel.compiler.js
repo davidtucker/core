@@ -1,11 +1,9 @@
 import watch from 'node-watch'
 import shell from 'shelljs';
 
-// Bonus: write this in bash!
-
 const watchOptions = {
   recursive: true,
-  filter: f => !/node_modules/.test(f),
+  filter: /^((?!(node_modules|\.cjs|\.js)).)*$/,
 };
 
 const babel = './node_modules/.bin/babel';
@@ -14,16 +12,21 @@ const execBabelCjsModule = `${babel} ./packages --out-dir ./packages -x .ts --ou
 const execBabelJsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .js`;
 const execBabel = [execBabelCjsModule, execBabelJsModule].join('& ');
 
-// Compile all files first
+// First compile all files
 shell.exec(execBabel, (code, stdout, stderr) => {
-  if (code !== 0 && stderr) {
-    return shell.exec(`npm run clean`, _ => shell.exit(1));
-  }
+  // Then compile particular file on change
+  const compiledMessage = name => console.log('Successfully compiled 1 file with Babel: %s', name);
+  const replaceToJs = name => name.replace('.ts', '.js');
+  const replaceToCJs = name => name.replace('.ts', '.cjs');
 
-  // Compile particular file on change
   watch('./packages', watchOptions, (_, name) => {
-    console.log('%s changed', name);
-    shell.exec(`${babel} ${name} --out-file ${name.replace('.ts', '.js')}`);
-    shell.exec(`${babel} ${name} --out-file ${name.replace('.ts', '.cjs')} ${babelPlugins}`);
+    shell.exec(`${babel} ${name} --out-file ${replaceToJs(name)}`,
+      _ => code !== 0 && stderr ? null : compiledMessage(replaceToJs(name)),
+    );
+    shell.exec(`${babel} ${name} --out-file ${replaceToCJs(name)} ${babelPlugins}`,
+      _ => code !== 0 && stderr ? null : compiledMessage(replaceToCJs(name)),
+    );
   });
 });
+
+// Bonus: write whole file in bash!
