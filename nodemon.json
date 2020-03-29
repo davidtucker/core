@@ -1,5 +1,5 @@
 {
-  "watch": ["./"],
+  "watch": ["./packages"],
   "ext": ".ts,.js",
   "ignore": [
     "build",

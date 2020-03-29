@@ -1,0 +1,1 @@
+# @pregular/for-of-template

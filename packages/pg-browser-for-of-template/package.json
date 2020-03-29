@@ -1,6 +1,12 @@
 {
   "name": "@pregular/for-of-template",
   "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "import": "./index.js",
+    "require": "./index.cjs"
+  },
+  "typings": "./index.d.ts",
   "description": "Ai based, Fast, SSR, Lightweight Angular alternative with the same modern API thats compile directly to WebComponents",
   "keywords": [
     "pregular",
@@ -22,6 +28,5 @@
     "url": "git+https://github.com/pregular/core.git"
   },
   "license": "MIT",
-  "author": "Serkan Sipahi <serkan.sipahi@yahoo.de>",
-  "main": "index.js"
+  "author": "Serkan Sipahi <serkan.sipahi@yahoo.de>"
 }

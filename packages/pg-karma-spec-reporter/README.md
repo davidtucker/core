@@ -1,0 +1,1 @@
+# @pregular/karma-spec-reporter
