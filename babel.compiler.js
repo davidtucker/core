@@ -1,29 +1,29 @@
 import watch from 'node-watch'
 import shell from 'shelljs';
 
+// Bonus: write this in bash!
+
 const watchOptions = {
-    recursive: true,
-    filter: f => !/node_modules/.test(f),
+  recursive: true,
+  filter: f => !/node_modules/.test(f),
 };
+
 const babel = './node_modules/.bin/babel';
-const files = `
-    for script in $(find packages/ -iname '*.ts' -not -path 'node_modules' | sed -e 's|.ts||g'); do
-        ${babel} $script.ts --out-file $script.js;
-        ${babel} $script.ts --out-file $script.cjs --plugins @babel/plugin-transform-modules-commonjs
-    done
-`;
+const babelPlugins = '--plugins @babel/plugin-transform-modules-commonjs';
+const execBabelCjsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .cjs  ${babelPlugins}`;
+const execBabelJsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .js`;
+const execBabel = [execBabelCjsModule, execBabelJsModule].join('& ');
 
-const onDone = code => code !== 0 ? shell.exit() : null;
-shell.exec(files, (code, stdout, stderr) => {
-  // Log result
-  console.log('Exit code:', code);
-  console.log('Program output:', stdout);
-  console.log('Program stderr:', stderr);
+// Compile all files first
+shell.exec(execBabel, (code, stdout, stderr) => {
+  if (code !== 0 && stderr) {
+    return shell.exec(`npm run clean`, _ => shell.exit(1));
+  }
 
-  watch('packages', watchOptions, (_, name) => {
-    const shellOption = {async:true};
-    // shell.exec('echo ".js"', shellOption, onDone);
-    // shell.exec('echo ".cjs"', shellOption, onDone);
+  // Compile particular file on change
+  watch('./packages', watchOptions, (_, name) => {
     console.log('%s changed', name);
+    shell.exec(`${babel} ${name} --out-file ${name.replace('.ts', '.js')}`);
+    shell.exec(`${babel} ${name} --out-file ${name.replace('.ts', '.cjs')} ${babelPlugins}`);
   });
 });
