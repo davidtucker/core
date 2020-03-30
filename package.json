@@ -34,7 +34,7 @@
     "compile:dec:single": "tsc ${npm_config_src_file} --emitDeclarationOnly --declaration",
     "compile:mjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .js --source-maps inline",
     "compile:mjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --source-maps inline",
-    "lint": "eslint --ext .js,.ts ./",
+    "lint": "eslint --ext .ts ./ --ignore-pattern '**/*.d.ts'",
     "test:all": "concurrently \"npm run test:node\" \"npm run test:browser\"",
     "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
     "test:browser": "karma start --coverage --auto-watch=false --single-run=false",

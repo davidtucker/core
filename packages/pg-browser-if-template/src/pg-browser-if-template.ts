@@ -9,8 +9,8 @@ export class PgHTMLTemplateElement extends HTMLTemplateElement {
     private pgIfVmRef: string,
     private pgVmRefs: [string, any] | null,
     private callback: () => void,
-    private template: string) {
-
+    private template: string,
+  ) {
     super();
     this.innerHTML = this.template;
   }
@@ -41,5 +41,8 @@ export class PgHTMLTemplateElement extends HTMLTemplateElement {
   }
 }
 
-!customElements.get('pg-if-template') ? customElements.define('pg-if-template', PgHTMLTemplateElement as any, {extends: 'template'}) : null;
+!customElements.get('pg-if-template')
+  ? customElements.define('pg-if-template', PgHTMLTemplateElement as any, { extends: 'template' })
+  : null;
+
 export const PgIfTemplate = PgHTMLTemplateElement;

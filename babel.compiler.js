@@ -21,8 +21,8 @@ const execBabelJsModuleSingle = 'npm run compile:mjs:single --src-file=%s --out-
 const execBabelCjsModuleSingle = 'npm run compile:cjs:single --src-file=%s --out-file=%s';
 const execTsDeclarationsSingle = 'npm run compile:dec:single --src-file=%s';
 
-// npm scripts: combine tasks
-const execBabel = [execBabelCjsModuleAll, execBabelJsModuleAll, execTsDeclarationsAll].join('& '); // '&& ' => run in shell parallel
+// npm scripts: combine tasks ('& ' => run in shell parallel)
+const execBabel = [execBabelCjsModuleAll, execBabelJsModuleAll, execTsDeclarationsAll].join('& ');
 
 // helper
 const replaceExtToJs = name => name.replace('.ts', '.js');

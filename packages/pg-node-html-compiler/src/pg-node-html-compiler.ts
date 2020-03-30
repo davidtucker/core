@@ -4,9 +4,9 @@ import { parseTemplate } from '@angular/compiler';
 export class IvyAstVisitor implements t.Visitor {
   result: any[] = [];
 
-  visit(node: t.Node){
-
-  };
+  visit(node: t.Node) {
+    console.log(node, this);
+  }
 
   visitElement(element: t.Element) {
     this.result.push(['Element', element.name]);
@@ -72,14 +72,15 @@ export class IvyAstVisitor implements t.Visitor {
   }
 
   visitBoundText(text: t.BoundText) {
-    this.result.push(['BoundText', text.value]); }
+    this.result.push(['BoundText', text.value]);
+  }
 
   visitIcu(icu: t.Icu) {
     this.result.push(['Icu', icu]);
   }
 
   private visitAll(nodes: t.Node[][]) {
-    nodes.forEach(node => t.visitAll(this, node));
+    nodes.forEach((node) => t.visitAll(this, node));
   }
 }
 

@@ -7,13 +7,14 @@ jasmine.loadConfig({
   spec_files: ['**/*.spec.cjs'],
   random: false,
   seed: null,
-  stopSpecOnExpectationFailure: false
+  stopSpecOnExpectationFailure: false,
 });
 // @ts-ignore
 jasmine.jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
 // setup console reporter
 const JasmineConsoleReporter = require('jasmine-console-reporter');
+
 const reporter = new JasmineConsoleReporter({
   colors: 1,
   cleanStack: 1,
@@ -23,7 +24,7 @@ const reporter = new JasmineConsoleReporter({
   timeThreshold: { ok: 500, warn: 1000, ouch: 3000 },
   activity: true,
   emoji: true,
-  beep: true
+  beep: true,
 });
 
 jasmine.env.clearReporters();
