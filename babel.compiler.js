@@ -3,32 +3,44 @@ const shell = require('shelljs');
 
 const watchOptions = {
   recursive: true,
-  filter: /^((?!(node_modules|\.cjs|\.js)).)*$/,
+  filter: /^((?!(node_modules|\.cjs|\.js|\.d\.ts)).)*$/,
+};
+const shellOptions = {
+  async: true
 };
 
 const babel = './node_modules/.bin/babel';
+const tsc = './node_modules/.bin/tsc';
 const babelPlugins = '--plugins @babel/plugin-transform-modules-commonjs';
-const babelOptions = '--source-maps inline';
-const execBabelCjsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .cjs  ${babelPlugins} ${babelOptions}`;
-const execBabelJsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .js ${babelOptions}`;
-const execBabel = [execBabelCjsModule, execBabelJsModule].join('& '); // '& ' => run in shell parallel
 
-// First compile all files
+const exeClean = 'npm run clean';
+const execBabelCjsModuleAll = 'npm run compile:cjs:all';
+const execBabelJsModuleAll = 'npm run compile:mjs:all';
+const execTsDeclarationsAll = 'npm run compile:dec:all';
+const execBabel = [exeClean, execBabelCjsModuleAll, execBabelJsModuleAll, execTsDeclarationsAll].join('&& '); // '&& ' => run in shell sequentially
+
+// First compile all files to .js and .cjs
 shell.exec(execBabel, (code, stdout, stderr) => {
   // Then compile particular file on change
   const compiledMessage = name => console.log('Successfully compiled 1 file with Babel: %s', name);
   const replaceToJs = name => name.replace('.ts', '.js');
   const replaceToCJs = name => name.replace('.ts', '.cjs');
+  const replaceToDTs = name => name.replace('.ts', '.d.ts');
 
   watch('./packages', watchOptions, (_, name) => {
-    shell.exec(`${babel} ${name} --out-file ${replaceToJs(name)}`,
+    // to esModule
+    shell.exec(`${babel} ${name} --out-file ${replaceToJs(name)} --source-maps inline`, shellOptions,
       _ => code !== 0 && stderr ? null : compiledMessage(replaceToJs(name)),
     );
-    shell.exec(`${babel} ${name} --out-file ${replaceToCJs(name)} ${babelPlugins}`,
+    // to commonjs
+    shell.exec(`${babel} ${name} --out-file ${replaceToCJs(name)} ${babelPlugins} --source-maps inline`, shellOptions,
       _ => code !== 0 && stderr ? null : compiledMessage(replaceToCJs(name)),
+    );
+    // to definition file
+    shell.exec(`${tsc} ${name} --emitDeclarationOnly --declaration`, shellOptions,
+      _ => code !== 0 && stderr ? null : compiledMessage(replaceToDTs(name)),
     );
   });
 });
 
-// Bonus: write whole file in bash!
 // Bonus: move this to pg-karma-babel-plugin
