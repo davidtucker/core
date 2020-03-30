@@ -2,10 +2,8 @@
   "name": "@pregular/if-template",
   "version": "0.0.0",
   "type": "module",
-  "exports": {
-    "import": "./index.js",
-    "require": "./index.cjs"
-  },
+  "exports": "./index.js",
+  "main": "./index.js",
   "typings": "./index.d.ts",
   "description": "Ai based, Fast, SSR, Lightweight Angular alternative with the same modern API thats compile directly to WebComponents",
   "keywords": [
