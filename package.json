@@ -25,8 +25,8 @@
   "author": "Serkan Sipahi <serkan.sipahi@yahoo.de>",
   "main": "index.js",
   "scripts": {
-    "build:dev": "node babel.compiler.js",
-    "build:prod": "echo 'no implemented yet'",
+    "build:dev": "npm run clean && node babel.compiler.js",
+    "build:prod": "npm run clean && echo 'build:prod not implemented yet'",
     "clean": "find ./packages -type f \\( -iname \\*.cjs -o -iname \\*.js -o -iname \\*.d.ts \\) -delete",
     "compile:cjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .cjs --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
     "compile:cjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
@@ -34,13 +34,15 @@
     "compile:dec:single": "tsc ${npm_config_src_file} --emitDeclarationOnly --declaration",
     "compile:mjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .js --source-maps inline",
     "compile:mjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --source-maps inline",
+    "test:all": "concurrently \"npm run test:node\" \"npm run test:browser\"",
     "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
-    "test:all:watch:withNew": "concurrently \"npm run build:new\" \"npm run test:node:watch\" \"npm run test:browser:watch\"",
-    "test:browser:coverage": "karma start --coverage",
+    "test:browser": "karma start --coverage --auto-watch=false --single-run=false",
     "test:browser:watch": "karma start --coverage --auto-watch=true --single-run=false",
+    "test:browser:coverage": "karma start --coverage",
     "test:node": "babel-node jasmine.node.config.js --ignore node_modules",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
-    "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk"
+    "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
+    "test:node:coverage": "echo 'test:node:coverage not implemented yet'"
   },
   "browserslist": [
     "last 1 version",
