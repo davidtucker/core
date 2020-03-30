@@ -6,7 +6,7 @@ module.exports = config => {
       'jasmine',
     ],
     files: [
-      file('packages/pg-browser-*/**/*.ts', config),
+      file('packages/pg-browser-*/**/*.spec.js', config),
     ],
     browsers: [
       'Chrome',
@@ -35,7 +35,7 @@ module.exports = config => {
       babelModuleExclude: excludeFromCompilation,
 
       nodeResolve: true,
-      fileExtensions: ['.ts'],
+      fileExtensions: ['.js'],
       preserveSymlinks: true,
 
       polyfills: {

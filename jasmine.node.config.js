@@ -4,11 +4,12 @@ const Jasmine = require('jasmine');
 const jasmine = new Jasmine({});
 jasmine.loadConfig({
   spec_dir: 'packages/pg-node-*',
-  spec_files: ['**/*.ts'],
+  spec_files: ['**/*.spec.cjs'],
   random: false,
   seed: null,
   stopSpecOnExpectationFailure: false
 });
+// @ts-ignore
 jasmine.jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
 // setup console reporter

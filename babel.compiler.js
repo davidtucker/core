@@ -1,5 +1,5 @@
-import watch from 'node-watch'
-import shell from 'shelljs';
+const watch = require('node-watch');
+const shell = require('shelljs');
 
 const watchOptions = {
   recursive: true,
@@ -8,9 +8,10 @@ const watchOptions = {
 
 const babel = './node_modules/.bin/babel';
 const babelPlugins = '--plugins @babel/plugin-transform-modules-commonjs';
-const execBabelCjsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .cjs  ${babelPlugins}`;
-const execBabelJsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .js`;
-const execBabel = [execBabelCjsModule, execBabelJsModule].join('& ');
+const babelOptions = '--source-maps inline';
+const execBabelCjsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .cjs  ${babelPlugins} ${babelOptions}`;
+const execBabelJsModule = `${babel} ./packages --out-dir ./packages -x .ts --out-file-extension .js ${babelOptions}`;
+const execBabel = [execBabelCjsModule, execBabelJsModule].join('& '); // '& ' => run in shell parallel
 
 // First compile all files
 shell.exec(execBabel, (code, stdout, stderr) => {
@@ -30,3 +31,4 @@ shell.exec(execBabel, (code, stdout, stderr) => {
 });
 
 // Bonus: write whole file in bash!
+// Bonus: move this to pg-karma-babel-plugin
