@@ -5,13 +5,19 @@ export class IvyAstVisitor implements t.Visitor {
   result: any[] = [];
 
   visit(node: t.Node) {
-    console.log(node, this);
+    console.log(node);
   }
 
   visitElement(element: t.Element) {
     this.result.push(['Element', element.name]);
     // eslint-disable-next-line max-len
-    this.visitAll([element.attributes, element.inputs, element.outputs, element.references, element.children]);
+    this.visitAll([
+      element.attributes,
+      element.inputs,
+      element.outputs,
+      element.references,
+      element.children,
+    ]);
   }
 
   visitTemplate(template: t.Template) {

@@ -11,7 +11,7 @@
     "browser": true
   },
   "rules": {
-    "max-len":  ["warn", { "code": 130 }],
+    "max-len":  ["warn", { "code": 110 }],
     "arrow-parens": "off",
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
