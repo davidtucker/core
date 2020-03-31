@@ -1,5 +1,8 @@
 {
-  "extends": ["airbnb-typescript/base"],
+  "extends": [
+    "airbnb-typescript/base",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -23,6 +26,7 @@
     "no-prototype-builtins": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "no-use-before-define": [
       "error",
       { "functions": false, "classes": true, "variables": true }
@@ -30,6 +34,6 @@
     "@typescript-eslint/no-use-before-define": [
       "error",
       { "functions": false, "classes": true, "variables": true, "typedefs": true }
-    ],
+    ]
   }
 }
