@@ -11,8 +11,7 @@
     "browser": true
   },
   "rules": {
-    "max-len":  ["warn", { "code": 110 }],
-    "arrow-parens": "off",
+    "max-len":  ["warn", { "code": 110, "ignoreUrls": true }],
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
     "no-console": "off",
@@ -23,9 +22,9 @@
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-unused-expressions": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-prototype-builtins": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
+    "no-prototype-builtins": "off",
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "no-use-before-define": [
       "error",

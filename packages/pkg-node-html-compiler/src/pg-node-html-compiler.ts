@@ -71,7 +71,7 @@ export class IvyAstVisitor implements t.Visitor {
   }
 
   private visitAll(nodes: t.Node[][]) {
-    nodes.forEach((node) => t.visitAll(this, node));
+    nodes.forEach(node => t.visitAll(this, node));
   }
 }
 

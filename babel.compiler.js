@@ -25,10 +25,10 @@ const execTsDeclarationsSingle = 'npm run compile:dec:single --src-file=%s';
 const execBabel = [execBabelCjsModuleAll, execBabelJsModuleAll, execTsDeclarationsAll].join('& ');
 
 // helper
-const replaceExtToJs = (name) => name.replace('.ts', '.js');
-const replaceExtToCJs = (name) => name.replace('.ts', '.cjs');
-const replaceExtToDTs = (name) => name.replace('.ts', '.d.ts');
-const compiledMessage = (name) => console.log('Successfully compiled 1 file with Babel: %s', name);
+const replaceExtToJs = name => name.replace('.ts', '.js');
+const replaceExtToCJs = name => name.replace('.ts', '.cjs');
+const replaceExtToDTs = name => name.replace('.ts', '.d.ts');
+const compiledMessage = name => console.log('Successfully compiled 1 file with Babel: %s', name);
 const hasError = (code, stderr) => code !== 0 && stderr;
 
 // First compile all files to .js and .cjs
@@ -36,15 +36,15 @@ shell.exec(execBabel, (code, stdout, stderr) => {
   // Then compile particular file on change
   watch('./packages', watchOptions, (_, name) => {
     // compile to esModule
-    shell.exec(util.format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, (code) =>
+    shell.exec(util.format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToJs(name)),
     );
     // compile to commonJs
-    shell.exec(util.format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, (code) =>
+    shell.exec(util.format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, code =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToCJs(name)),
     );
     // compile to definition file
-    shell.exec(util.format(execTsDeclarationsSingle, name), shellOptions, (code) =>
+    shell.exec(util.format(execTsDeclarationsSingle, name), shellOptions, code =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToDTs(name)),
     );
   });
