@@ -6,13 +6,13 @@ module.exports = config => {
       'jasmine',
     ],
     files: [
-      file('packages/pg-browser-*/**/*.spec.js', config),
+      file('packages/pkg-browser-*/**/*.spec.js', config),
     ],
     browsers: [
       'Chrome',
       'Firefox',
-      'Safari',
-      // 'Opera' Error compiling: [BABEL] Unknown version 67 of Opera
+      // 'Safari',
+      // Error compiling: [BABEL] Unknown version 67 of Opera
       // 'Opera',
     ],
     plugins: [

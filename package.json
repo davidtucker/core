@@ -25,18 +25,21 @@
   "author": "Serkan Sipahi <serkan.sipahi@yahoo.de>",
   "main": "index.js",
   "scripts": {
-    "build:dev": "npm run clean && node babel.compiler.js",
-    "build:prod": "npm run clean && echo 'build:prod not implemented yet'",
+    "build:dev": "echo 'warning: 'build:dev' not implemented yet'",
+    "build:prod": "echo 'warning: build:prod' not implemented yet'",
     "clean": "find ./packages -type f \\( -iname \\*.cjs -o -iname \\*.js -o -iname \\*.d.ts \\) -delete",
+    "compile": "npm run clean && node babel.compiler.js",
     "compile:cjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .cjs --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
     "compile:cjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
-    "compile:dec:all": "tsc ./packages/pg-*/src/*.ts --declaration --target ES5",
+    "compile:dec:all": "tsc ./packages/pkg-*/src/*.ts --declaration --target ES5",
     "compile:dec:single": "tsc ${npm_config_src_file} --emitDeclarationOnly --declaration",
     "compile:mjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .js --source-maps inline",
     "compile:mjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --source-maps inline",
+    "eslint": "eslint ./ --ext .js,.ts --ignore-pattern '**/*.d.ts'",
     "lint": "npm run eslint && npm run tslint",
     "lint:fix": "npm run eslint -- --fix && npm run tslint",
     "lint:watch": "npm run eslint:watch && npm run tslint -- -w",
+    "test": "npm run test:all:watch",
     "test:all": "concurrently \"npm run test:node\" \"npm run test:browser\"",
     "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
     "test:browser": "karma start --coverage --auto-watch=false --single-run=true",
@@ -46,18 +49,18 @@
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
-    "tslint": "tsc --noEmit",
-    "eslint": "eslint ./ --ext .js,.ts --ignore-pattern '**/*.d.ts'"
+    "tslint": "tsc --noEmit"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.{js,ts}": [
+      "tsc --noEmit",
       "eslint --fix",
-      "git add"
+      "prettier --write ./"
     ]
   },
   "browserslist": [

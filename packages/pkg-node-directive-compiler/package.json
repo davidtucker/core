@@ -1,0 +1,29 @@
+{
+  "name": "@pregular/directive-compiler",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "exports": "./index.cjs",
+  "typings": "./index.d.ts",
+  "description": "Ai based, Fast, SSR, Lightweight Angular alternative with the same modern API thats compile directly to WebComponents",
+  "keywords": [
+    "pregular",
+    "angular",
+    "artificial",
+    "intelligence",
+    "fast",
+    "small",
+    "component",
+    "typescript",
+    "tree-shaking"
+  ],
+  "homepage": "https://github.com/pregular/core#readme",
+  "bugs": {
+    "url": "https://github.com/pregular/core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pregular/core.git"
+  },
+  "license": "MIT",
+  "author": "Serkan Sipahi <serkan.sipahi@yahoo.de>"
+}

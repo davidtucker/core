@@ -36,15 +36,15 @@ shell.exec(execBabel, (code, stdout, stderr) => {
   // Then compile particular file on change
   watch('./packages', watchOptions, (_, name) => {
     // compile to esModule
-    shell.exec(util.format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, (_) =>
+    shell.exec(util.format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, (code) =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToJs(name)),
     );
     // compile to commonJs
-    shell.exec(util.format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, (_) =>
+    shell.exec(util.format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, (code) =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToCJs(name)),
     );
     // compile to definition file
-    shell.exec(util.format(execTsDeclarationsSingle, name), shellOptions, (_) =>
+    shell.exec(util.format(execTsDeclarationsSingle, name), shellOptions, (code) =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToDTs(name)),
     );
   });

@@ -1,5 +1,5 @@
-import { PgIfTemplate } from '../../pg-browser-if-template';
-import { updateDom } from '../../pg-browser-dom';
+import { PgIfTemplate } from '../../pkg-browser-if-template';
+import { updateDom } from '../../pkg-browser-dom';
 
 interface ElementRef {
   nativeElement: HTMLElement | null;

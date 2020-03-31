@@ -3,7 +3,7 @@ const Jasmine = require('jasmine');
 // @ts-ignore
 const jasmine = new Jasmine({});
 jasmine.loadConfig({
-  spec_dir: 'packages/pg-node-*',
+  spec_dir: 'packages/pkg-node-*',
   spec_files: ['**/*.spec.cjs'],
   random: false,
   seed: null,
