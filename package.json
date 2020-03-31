@@ -59,8 +59,8 @@
   "lint-staged": {
     "*.{js,ts}": [
       "npm run tslint",
-      "eslint --fix",
-      "prettier --write ./"
+      "prettier --write ./",
+      "eslint --fix"
     ]
   },
   "browserslist": [
