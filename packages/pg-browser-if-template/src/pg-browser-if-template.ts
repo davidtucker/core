@@ -27,6 +27,7 @@ export class PgHTMLTemplateElement extends HTMLTemplateElement {
     const [uuid, expressionValue] = this.context[this.pgIfVmRef];
     const ngIfRefNode = this.context.querySelector(`#${uuid}`);
 
+    // @
     if (expressionValue) {
       const templateNode = this.content.cloneNode(true);
       ngIfRefNode?.parentNode?.replaceChild(ngIfRefNode, templateNode);
