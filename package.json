@@ -34,8 +34,8 @@
     "compile:dec:single": "tsc ${npm_config_src_file} --emitDeclarationOnly --declaration",
     "compile:mjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .js --source-maps inline",
     "compile:mjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --source-maps inline",
-    "lint": "eslint --ext .ts ./ --ignore-pattern '**/*.d.ts'",
-    "lint:watch": "esw --ext .ts ./ --ignore-pattern '**/*.d.ts' -w",
+    "lint": "eslint --ext .js,.ts ./ --ignore-pattern '**/*.d.ts'",
+    "lint:watch": "esw --ext .js,.ts ./ --ignore-pattern '**/*.d.ts' -w",
     "test:all": "concurrently \"npm run test:node\" \"npm run test:browser\"",
     "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
     "test:browser": "karma start --coverage --auto-watch=false --single-run=false",
@@ -45,6 +45,17 @@
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "browserslist": [
     "last 1 version",

@@ -36,11 +36,15 @@ export class AppComponentCompiled extends HTMLElement {
   }
 
   private _pgIfTpl_1 = new PgIfTemplate(
-    this, '_pgVm_foo', null, () => {
+    this,
+    '_pgVm_foo',
+    null,
+    () => {
       this._pgIfTpl_2.setPgIf(this._pgVm_bar[1], () => {
         updateDom(this, '_pgVm_bar', this._pgVm_bar[1]);
       });
-    }, `
+    },
+    `
     <div id="pg-uuid-1">
       <pg-vm id="pg-uuid-11"></pg-vm>
       <pg-if-tpl id="pg-uuid-2"></pg-if-tpl></pg-vm>
@@ -48,11 +52,15 @@ export class AppComponentCompiled extends HTMLElement {
   );
 
   private _pgIfTpl_2 = new PgIfTemplate(
-    this, '_pgVm_bar', null, () => {
+    this,
+    '_pgVm_bar',
+    null,
+    () => {
       this._pgIfTpl_3.setPgIf(this._pgVm_baz[1], () => {
         updateDom(this, '_pgVm_baz', this._pgVm_baz[1]);
       });
-    }, `
+    },
+    `
     <div id="pg-uuid-2">
       <pg-if-tpl id="pg-uuid-3"></pg-if-tpl>
       <pg-vm id="pg-uuid-12"></pg-vm>
@@ -60,7 +68,11 @@ export class AppComponentCompiled extends HTMLElement {
   );
 
   private _pgIfTpl_3 = new PgIfTemplate(
-    this, '_pgVm_baz', null, () => null, `
+    this,
+    '_pgVm_baz',
+    null,
+    () => null,
+    `
     <div id="pg-uuid-3">
       <pg-vm id="pg-uuid-13"></pg-vm>
       <pg-if-tpl id="pg-uuid-4"></pg-if-tpl>
@@ -86,7 +98,7 @@ export class AppComponentCompiled extends HTMLElement {
     this._renderTemplate();
 
     /* this */ console.log(this);
-    /* into */console.log({
+    /* into */ console.log({
       elementRef: this.elementRef,
       foo: this._pgVm_foo[1],
       bar: this._pgVm_bar[1],

@@ -10,13 +10,8 @@ export class IvyAstVisitor implements t.Visitor {
 
   visitElement(element: t.Element) {
     this.result.push(['Element', element.name]);
-    this.visitAll([
-      element.attributes,
-      element.inputs,
-      element.outputs,
-      element.references,
-      element.children,
-    ]);
+    // eslint-disable-next-line max-len
+    this.visitAll([element.attributes, element.inputs, element.outputs, element.references, element.children]);
   }
 
   visitTemplate(template: t.Template) {
@@ -50,21 +45,11 @@ export class IvyAstVisitor implements t.Visitor {
   }
 
   visitBoundAttribute(attribute: t.BoundAttribute) {
-    this.result.push([
-      'BoundAttribute',
-      attribute.type,
-      attribute.name,
-      attribute.value,
-    ]);
+    this.result.push(['BoundAttribute', attribute.type, attribute.name, attribute.value]);
   }
 
   visitBoundEvent(event: t.BoundEvent) {
-    this.result.push([
-      'BoundEvent',
-      event.name,
-      event.target,
-      event.handler,
-    ]);
+    this.result.push(['BoundEvent', event.name, event.target, event.handler]);
   }
 
   visitText(text: t.Text) {
