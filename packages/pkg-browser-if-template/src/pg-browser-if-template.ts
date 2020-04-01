@@ -1,6 +1,6 @@
 export class PgHTMLTemplateElement extends HTMLTemplateElement {
   static get observedAttributes() {
-    return ['pg-if-triggerx'];
+    return ['pg-if-trigger'];
   }
 
   constructor(
