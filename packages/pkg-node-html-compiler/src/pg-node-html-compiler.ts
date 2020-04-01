@@ -4,9 +4,7 @@ import { parseTemplate } from '@angular/compiler';
 export class IvyAstVisitor implements t.Visitor {
   result: any[] = [];
 
-  visit(node: t.Node) {
-    console.log(node);
-  }
+  visit(node: t.Node) {}
 
   visitElement(element: t.Element) {
     this.result.push(['Element', element.name]);

@@ -1,6 +1,8 @@
+// Bonus: https://tutel.me/c/programming/questions/47832603/running+tests+mjs++esm+on+node+using+jasmine+or+any+other+alternative
+
 // setup Jasmine
 const Jasmine = require('jasmine');
-// @ts-ignore
+
 const jasmine = new Jasmine({});
 jasmine.loadConfig({
   spec_dir: 'packages/pkg-node-*',
@@ -9,7 +11,7 @@ jasmine.loadConfig({
   seed: null,
   stopSpecOnExpectationFailure: false,
 });
-// @ts-ignore
+
 jasmine.jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
 // setup console reporter

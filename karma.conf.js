@@ -1,13 +1,8 @@
 module.exports = config => {
   config.set({
     basePath: '',
-    frameworks: [
-      'esm',
-      'jasmine',
-    ],
-    files: [
-      file('packages/pkg-browser-*/**/*.spec.js', config),
-    ],
+    frameworks: ['esm', 'jasmine'],
+    files: [file('packages/pkg-browser-*/**/test/*.spec.js', config)],
     browsers: [
       'Chrome',
       'Firefox',
@@ -26,9 +21,7 @@ module.exports = config => {
     esm: {
       babel: true,
       customBabelConfig: {
-        presets: [
-            "@babel/preset-typescript",
-        ],
+        presets: ['@babel/preset-typescript'],
       },
       babelExclude: excludeFromCompilation,
       babelModernExclude: excludeFromCompilation,
@@ -51,10 +44,7 @@ const file = (filePattern, config) => ({
   type: 'module',
 });
 
-const excludeFromCompilation = [
-  '**/node_modules/**/*.js',
-  '**/node_modules/**/*.ts',
-];
+const excludeFromCompilation = ['**/node_modules/**/*.js', '**/node_modules/**/*.ts'];
 
 const customPolyfills = [
   {

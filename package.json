@@ -49,7 +49,7 @@
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
-    "tslint": "tsc --noEmit --allowJs"
+    "tslint": "tsc --noEmit --allowJs --target ESNEXT"
   },
   "husky": {
     "hooks": {
@@ -60,7 +60,7 @@
     "*.{js,ts}": [
       "npm run tslint",
       "prettier --write ./",
-      "eslint --fix"
+      "eslint ./ --ext .js,.ts --fix"
     ]
   },
   "browserslist": [
@@ -91,8 +91,11 @@
     "eslint-config-airbnb-typescript": "7.2.0",
     "eslint-config-airbnb-typescript-prettier": "2.1.1",
     "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-eslint-comments": "3.1.2",
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-unicorn": "18.0.1",
     "eslint-watch": "6.0.1",
     "husky": "4.2.3",
     "jasmine": "3.5.0",
@@ -109,6 +112,7 @@
     "karma-safari-launcher": "1.0.0",
     "lerna": "3.20.2",
     "lint-staged": "10.1.0",
+    "minimatch": "3.0.4",
     "node-watch": "0.6.3",
     "nodemon": "2.0.2",
     "prettier": "2.0.2",

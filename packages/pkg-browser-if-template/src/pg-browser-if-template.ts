@@ -33,7 +33,7 @@ export class PgHTMLTemplateElement extends HTMLTemplateElement {
       this.callback();
     } else {
       const ngIfTpl = document.createElement('pg-if-tpl');
-      ngIfTpl.appendChild(document.createComment(`pg-if: ${expressionValue}`));
+      ngIfTpl.append(document.createComment(`pg-if: ${expressionValue}`));
       ngIfTpl.id = uuid;
       ngIfRefNode?.parentNode?.replaceChild(ngIfRefNode, ngIfTpl);
     }
@@ -41,7 +41,9 @@ export class PgHTMLTemplateElement extends HTMLTemplateElement {
 }
 
 !customElements.get('pg-if-template')
-  ? customElements.define('pg-if-template', PgHTMLTemplateElement as any, { extends: 'template' })
+  ? customElements.define('pg-if-template', PgHTMLTemplateElement as any, {
+      extends: 'template',
+    })
   : null;
 
 export const PgIfTemplate = PgHTMLTemplateElement;

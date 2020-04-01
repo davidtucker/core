@@ -1,7 +1,33 @@
 {
+  // Source: https://groups.google.com/forum/#!topic/eslint/ttZUG3v7vn0
+  // Plugins are a set of rules distributed as NPM package. Configs are pre-defined configuration of
+  // rules (either default or plugin based). Those two don’t have much in common. Plugins can include
+  // shareable configs, however configs can’t include plugin rules. So, in short, plugins contain
+  // definitions for custom rules, and configs explain whether those rules should be enabled or disabled
+  // and how they should be configured.
+
+  // See also: https://stackoverflow.com/questions/53189200/whats-the-difference-between-plugins-and-extends-in-eslint#54522973
+
+  // Source: https://eslint.org/docs/user-guide/configuring#configuring-plugins
+  "plugins": [
+    "@typescript-eslint",                     // @typescript-eslint/eslint-plugin
+    "eslint-comments",                        // eslint-plugin-eslint-comments
+    "promise",                                // eslint-plugin-promise
+    "unicorn" ,                               // eslint-plugin-unicorn
+    "prettier",                               // eslint-plugin-prettier
+    "import"                                  // eslint-plugin-import
+  ],
+
+  // Source: https://eslint.org/docs/user-guide/configuring#extending-configuration-files
   "extends": [
-    "airbnb-typescript/base",
-    "plugin:prettier/recommended"
+    "airbnb-typescript/base",                 // eslint-config-airbnb-typescript  => base         => configs.base.rules
+    "plugin:prettier/recommended",            // eslint-plugin-prettier           => recommended  => configs.recommended.rules
+    "plugin:@typescript-eslint/recommended",  // @typescript-eslint/eslint-plugin => recommended  => configs.recommended.rules
+    "plugin:eslint-comments/recommended",     // eslint-plugin-eslint-comments    => recommended  => configs.recommended.rules
+    "plugin:promise/recommended",             // eslint-plugin-promise            => recommended  => configs.recommended.rules
+    "plugin:unicorn/recommended",             // eslint-plugin-unicorn            => recommended  => configs.recommended.rules
+    "prettier",                               // eslint-config-prettier           =>     --       => rules
+    "prettier/@typescript-eslint"             // eslint-config-prettier           =>     --       => plugins.@typescript-eslint ?
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -11,7 +37,6 @@
     "browser": true
   },
   "rules": {
-    "max-len":  ["warn", { "code": 110, "ignoreUrls": true }],
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
     "no-console": "off",
@@ -21,18 +46,32 @@
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-unused-expressions": "off",
+    "@typescript-eslint/no-explicit-an": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
     "no-prototype-builtins": "off",
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "no-use-before-define": [
-      "error",
-      { "functions": false, "classes": true, "variables": true }
-    ],
-    "@typescript-eslint/no-use-before-define": [
-      "error",
-      { "functions": false, "classes": true, "variables": true, "typedefs": true }
-    ]
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "max-len":  ["warn", {
+      "code": 110,
+      "ignoreUrls": true
+    }],
+    "quotes": ["error", "single", {
+      "allowTemplateLiterals": true
+    }],
+    "no-use-before-define": ["error", {
+      "functions": false,
+      "classes": true,
+      "variables": true
+    }],
+    "@typescript-eslint/no-use-before-define": ["error", {
+      "functions": false,
+      "classes": true,
+      "variables": true,
+      "typedefs": true
+    }]
   }
 }
