@@ -58,7 +58,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "tsc --noEmit --allowJs --target ES5",
+      "npm run tslint",
       "prettier --write ./",
       "eslint ./ --ext .js,.ts --fix"
     ]
