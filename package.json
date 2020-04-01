@@ -49,7 +49,7 @@
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
-    "tslint": "tsc --noEmit --allowJs --target ESNEXT"
+    "tslint": "tsc --noEmit --allowJs --target ES5"
   },
   "husky": {
     "hooks": {
@@ -58,7 +58,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "npm run tslint",
+      "tsc --noEmit --allowJs --target ES5",
       "prettier --write ./",
       "eslint ./ --ext .js,.ts --fix"
     ]
