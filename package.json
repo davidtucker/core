@@ -39,6 +39,8 @@
     "lint": "npm run eslint && npm run tslint",
     "lint:fix": "npm run eslint -- --fix && npm run tslint",
     "lint:watch": "npm run eslint:watch && npm run tslint -- -w",
+    "prettier:write": "prettier --write ./ --config .prettierrc",
+    "sort-pkg": "sort-package-json",
     "test": "npm run test:all:watch",
     "test:all": "concurrently \"npm run test:node\" \"npm run test:browser\"",
     "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
@@ -49,18 +51,17 @@
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
-    "tslint": "tsc --noEmit --allowJs --target ES5"
+    "tslint": "tsc --noEmit --allowJs --target ESNEXT --declaration false --declarationMap false"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint && lint-staged --no-stash"
     }
   },
   "lint-staged": {
-    "*.{js,ts}": [
-      "npm run tslint",
-      "prettier --write ./",
-      "eslint ./ --ext .js,.ts --fix"
+    "(packages/**/*!(.d).ts|./*.js)": [
+      "npm run prettier:write",
+      "npm run eslint -- --fix"
     ]
   },
   "browserslist": [
@@ -117,6 +118,7 @@
     "nodemon": "2.0.2",
     "prettier": "2.0.2",
     "shelljs": "0.8.3",
+    "sort-package-json": "1.40.0",
     "tslib": "1.11.1",
     "typescript": "3.8.3"
   }
