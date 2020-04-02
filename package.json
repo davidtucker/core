@@ -36,8 +36,9 @@
     "compile:mjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .js --source-maps inline",
     "compile:mjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --source-maps inline",
     "eslint": "eslint ./ --ext .js,.ts --ignore-pattern '**/*.d.ts'",
+    "eslint:fix": "npm run eslint -- --fix",
     "lint": "npm run eslint && npm run tslint",
-    "lint:fix": "npm run eslint -- --fix && npm run tslint",
+    "lint:fix": "npm run eslint:fix && npm run tslint",
     "lint:watch": "npm run eslint:watch && npm run tslint -- -w",
     "prettier:write": "prettier --write ./ --config .prettierrc",
     "sort-pkg": "sort-package-json",
@@ -55,13 +56,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && lint-staged --no-stash"
+      "pre-commit": "lint-staged --no-stash"
     }
   },
   "lint-staged": {
     "(packages/**/*!(.d).ts|./*.js)": [
-      "npm run prettier:write",
-      "npm run eslint -- --fix"
+      "npm run tslint",
+      "npm run eslint:fix",
+      "npm run prettier:write"
     ]
   },
   "browserslist": [

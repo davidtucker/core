@@ -1,23 +1,21 @@
 {
   "exclude": [
-    "karma.conf.js",
-    "build",
     "node_modules",
-    "lib"
+    "**/*.spec.(js|cjs)"
   ],
   "compilerOptions": {
-    "outDir": "build",
     "rootDir": "./",
     "target": "ESNEXT",
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "allowJs": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "noEmit": true,
     "typeRoots": [
-      "node_modules/@types"
+      "./node_modules/@types"
     ],
     "lib": [
       "es2018",
