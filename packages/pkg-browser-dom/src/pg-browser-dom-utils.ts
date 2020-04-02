@@ -4,6 +4,8 @@ export const updateDom = (context: HTMLElement, name: string, value: any) => {
     return;
   }
 
+  console.log('test log');
+
   const element = context.querySelector(uuid);
   if (element) {
     context.querySelector(uuid).textContent = value;
