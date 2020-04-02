@@ -49,6 +49,7 @@
     "test:browser": "karma start ./karma.conf.js --coverage --auto-watch=false --single-run=true",
     "test:browser:coverage": "karma start ./karma.conf.js --coverage",
     "test:browser:headless": "karma start ./karma.conf.js --browsers ChromeHeadless,FirefoxHeadless --coverage --auto-watch=false --single-run=true",
+    "test:browser:headless:watch": "karma start ./karma.conf.js --browsers ChromeHeadless,FirefoxHeadless --coverage --auto-watch=true --single-run=false",
     "test:browser:watch": "karma start ./karma.conf.js --coverage --auto-watch=true --single-run=false",
     "test:node": "babel-node jasmine.node.config.js --ignore node_modules",
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",

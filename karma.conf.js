@@ -6,7 +6,7 @@ module.exports = config => {
     browsers: [
       'Chrome',
       'Firefox',
-      // 'Safari',
+      'Safari',
       // Error compiling: [BABEL] Unknown version 67 of Opera
       // 'Opera',
     ],
