@@ -47,7 +47,7 @@
     "test:all": "concurrently --kill-others \"npm run test:node\" \"npm run test:browser\"",
     "test:all:watch": "concurrently --kill-others \"npm run test:node:watch\" \"npm run test:browser:watch\"",
     "test:browser": "karma start ./karma.conf.js --coverage --auto-watch=false --single-run=true",
-    "test:browser:headless": "karma start ./karma.conf.js --browsers ChromeHeadless --coverage --auto-watch=false --single-run=true",
+    "test:browser:headless": "karma start ./karma.conf.js --browsers ChromeHeadless,FirefoxHeadless --coverage --auto-watch=false --single-run=true",
     "test:browser:coverage": "karma start ./karma.conf.js --coverage",
     "test:browser:watch": "karma start ./karma.conf.js --coverage --auto-watch=true --single-run=false",
     "test:node": "babel-node jasmine.node.config.js --ignore node_modules",

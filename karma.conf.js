@@ -10,6 +10,12 @@ module.exports = config => {
       // Error compiling: [BABEL] Unknown version 67 of Opera
       // 'Opera',
     ],
+    customLaunchers: {
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: ['-headless'],
+      },
+    },
     plugins: [
       'karma-jasmine',
       'karma-chrome-launcher',
