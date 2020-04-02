@@ -28,7 +28,8 @@
     "build:dev": "echo 'warning: 'build:dev' not implemented yet'",
     "build:prod": "echo 'warning: build:prod' not implemented yet'",
     "clean": "find ./packages -type f \\( -iname \\*.cjs -o -iname \\*.js -o -iname \\*.d.ts \\) -delete",
-    "compile": "npm run clean && node babel.compiler.js",
+    "compile": "npm run clean && npm run compile:cjs:all && npm run compile:mjs:all && npm run compile:dec:all",
+    "compile:watch": "npm run clean && node babel.compiler.js",
     "compile:cjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .cjs --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
     "compile:cjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
     "compile:dec:all": "tsc ./packages/pkg-*/src/*.ts --emitDeclarationOnly --declaration --target ES5",
@@ -43,8 +44,8 @@
     "prettier:write": "prettier --write ./ --config .prettierrc",
     "sort-pkg": "sort-package-json",
     "test": "npm run test:all:watch",
-    "test:all": "concurrently \"npm run test:node\" \"npm run test:browser\"",
-    "test:all:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:watch\"",
+    "test:all": "concurrently --kill-others \"npm run test:node\" \"npm run test:browser\"",
+    "test:all:watch": "concurrently --kill-others \"npm run test:node:watch\" \"npm run test:browser:watch\"",
     "test:browser": "karma start --coverage --auto-watch=false --single-run=true",
     "test:browser:coverage": "karma start --coverage",
     "test:browser:watch": "karma start --coverage --auto-watch=true --single-run=false",
@@ -52,7 +53,7 @@
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
     "test:node:watch": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules",
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
-    "tslint": "tsc --noEmit --allowJs --target ESNEXT --declaration false --declarationMap false"
+    "tslint": "tsc --noEmit --allowJs --target ES5 --declaration false --declarationMap false"
   },
   "husky": {
     "hooks": {
@@ -63,7 +64,10 @@
     "(packages/**/*!(.d).ts|./*.js)": [
       "npm run tslint",
       "npm run eslint:fix",
-      "npm run prettier:write"
+      "npm run prettier:write",
+      "npm run compile",
+      "npm run test:node",
+      "npm run test:browser"
     ]
   },
   "browserslist": [
@@ -81,7 +85,9 @@
     "@babel/core": "7.9.0",
     "@babel/node": "7.8.7",
     "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-decorators": "7.8.3",
     "@babel/plugin-proposal-private-methods": "7.8.3",
+    "@babel/plugin-transform-runtime": "7.9.0",
     "@babel/preset-env": "7.9.0",
     "@babel/preset-typescript": "7.9.0",
     "@open-wc/karma-esm": "2.13.21",

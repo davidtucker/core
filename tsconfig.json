@@ -5,7 +5,7 @@
   ],
   "compilerOptions": {
     "rootDir": "./",
-    "target": "ESNEXT",
+    "target": "ES5",
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,

@@ -1,5 +1,5 @@
 {
-  "watch": ["./packages"],
+  "watch": ["./packages/pkg-node-*"],
   "ext": ".js",
   "ignore": [
     "build",
