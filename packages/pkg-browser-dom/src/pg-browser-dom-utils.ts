@@ -3,6 +3,7 @@ export const updateDom = (context: HTMLElement, name: string, value: any) => {
   // if (expressionValue === value) {
   //   return;
   // }
+
   const element = context.querySelector(uuid);
   if (element) {
     context.querySelector(uuid).textContent = value;
