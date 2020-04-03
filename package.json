@@ -61,6 +61,11 @@
     "test:node:watch:inspect": "nodemon --exec babel-node jasmine.node.config.js --extensions \".js\" --ignore node_modules--inspect-brk",
     "tslint": "tsc --noEmit --allowJs --target ES5 --declaration false --declarationMap false"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --no-stash"
+    }
+  },
   "lint-staged": {
     "packages/**/*!(.d).ts": [
       "npm run tslint",

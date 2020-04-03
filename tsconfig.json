@@ -9,7 +9,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "allowJs": false,
+    "allowJs": true,
     "declaration": false,
     "declarationMap": false,
     "sourceMap": false,
