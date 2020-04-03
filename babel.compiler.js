@@ -50,7 +50,7 @@ shell.exec(execBabel, (code, stdout, stderr) => {
   });
 });
 
-// bonus: write babel.compiler.js in golang
+// bonus: write scripts/babel.compiler.js in golang
 // https://github.com/urfave/cli/blob/master/docs/v2/manual.md
 // https://golang.org/pkg/os/exec/
 // https://github.com/fsnotify/fsnotify

@@ -5,4 +5,3 @@ lib
 packages/**/*.js
 packages/**/*.cjs
 packages/**/*.d.ts
-.idea/

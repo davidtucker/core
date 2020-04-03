@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/pregular/core.svg?branch=master)](https://travis-ci.org/pregular/core)
+
 ## :warning:Early Draft:warning:
 
 

@@ -1,12 +1,27 @@
+// Helper
+const excludeFromCompilation = ['**/node_modules/**/*.js', '**/node_modules/**/*.ts'];
+const file = (filePattern, config) => ({
+  pattern: config.grep ? config.grep : filePattern,
+  type: 'module',
+});
+const customPolyfills = [
+  {
+    name: 'document-register-element',
+    path: require.resolve('document-register-element'),
+    test: '!("customElements" in window)',
+  },
+];
+
+// karma.conf
 module.exports = config => {
   config.set({
-    basePath: '',
+    basePath: '..',
     frameworks: ['esm', 'jasmine'],
     files: [file('packages/pkg-browser-*/**/test/*.spec.js', config)],
     browsers: [
       'Chrome',
       'Firefox',
-      'Safari',
+      // 'Safari',
       // Error compiling: [BABEL] Unknown version 67 of Opera
       // 'Opera',
     ],
@@ -44,18 +59,3 @@ module.exports = config => {
   });
   return config;
 };
-
-const file = (filePattern, config) => ({
-  pattern: config.grep ? config.grep : filePattern,
-  type: 'module',
-});
-
-const excludeFromCompilation = ['**/node_modules/**/*.js', '**/node_modules/**/*.ts'];
-
-const customPolyfills = [
-  {
-    name: 'document-register-element',
-    path: require.resolve('document-register-element'),
-    test: "!('customElements' in window)",
-  },
-];
