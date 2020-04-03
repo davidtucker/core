@@ -53,7 +53,7 @@
     "test:browser:coverage": "karma start karma.conf.js --coverage",
     "test:browser:headless": "karma start karma.conf.js --browsers ChromeHeadless,FirefoxHeadless --coverage --auto-watch=false --single-run=true",
     "test:browser:headless:watch": "karma start karma.conf.js --browsers ChromeHeadless,FirefoxHeadless --coverage --auto-watch=true --single-run=false",
-    "test:browser:watch": "karma start karma.conf.js --coverage --auto-watch=true --single-run=false",
+    "test:browser:watch": "karma start karma.conf.js --auto-watch=true --single-run=false",
     "test:headless": "concurrently \"npm run test:node\" \"npm run test:browser:headless\"",
     "test:node": "jasmine-node --test-dir packages/pkg-node-* --forceexit",
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
