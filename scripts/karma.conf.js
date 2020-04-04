@@ -15,7 +15,7 @@ const customPolyfills = [
 // karma.conf
 module.exports = config => {
   config.set({
-    basePath: '',
+    basePath: '../',
     frameworks: ['esm', 'jasmine'],
     files: [file('packages/pkg-browser-*/**/test/*.spec.js', config)],
     browsers: [

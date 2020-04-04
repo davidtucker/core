@@ -1,6 +1,6 @@
 {
-  "watch": ["./packages/pkg-node-*"],
-  "ext": ".js",
+  "watch": ["./packages"],
+  "ext": ".ts,.js,.cjs",
   "ignore": [
     "build",
     "node_modules"
