@@ -69,6 +69,7 @@
   },
   "lint-staged": {
     "packages/**/*!(.d).ts": [
+      "npm run clean",
       "npm run tslint",
       "npm run eslint:fix",
       "npm run compile",
