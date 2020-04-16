@@ -1,4 +1,4 @@
-import { updateDom } from '../src/pg-browser-dom-utils';
+import { updateDom } from '../src/pg-dom-utils';
 
 describe('Pregular browser dom utils', () => {
   it('should test', () => {

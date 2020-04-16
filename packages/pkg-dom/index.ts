@@ -1,1 +1,1 @@
-export { updateDom } from './src/pg-browser-dom-utils';
+export { updateDom } from './src/pg-dom-utils';

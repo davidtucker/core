@@ -27,7 +27,7 @@
   "scripts": {
     "build:dev": "echo 'warning: 'build:dev' not implemented yet'",
     "build:prod": "echo 'warning: build:prod' not implemented yet'",
-    "clean": "find ./packages -type f \\( -iname \\*.cjs -o -iname \\*.js -o -iname \\*.d.ts \\) -delete",
+    "clean": "find ./packages -type f \\( -iname '*.cjs' -o -iname '*.js' -o -iname '*.d.ts' \\) -delete",
     "compile": "npm run clean && npm run compile:cjs:all && npm run compile:mjs:all && npm run compile:dec:all",
     "compile:cjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .cjs --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
     "compile:cjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
@@ -69,7 +69,6 @@
   },
   "lint-staged": {
     "packages/**/*!(.d).ts": [
-      "npm run clean",
       "npm run tslint",
       "npm run eslint:fix",
       "npm run compile",

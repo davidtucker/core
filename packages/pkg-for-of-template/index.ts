@@ -1,1 +1,1 @@
-export { PgForOfTemplateElement } from './src/pg-browser-for-of-template';
+export { PgForOfTemplateElement } from './src/pg-for-of-template';

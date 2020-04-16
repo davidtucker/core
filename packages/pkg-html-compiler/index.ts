@@ -1,1 +1,1 @@
-export * from './src/pg-node-html-compiler';
+export * from './src/pg-html-compiler';
