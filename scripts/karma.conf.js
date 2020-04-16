@@ -1,9 +1,20 @@
-// Helper
+const get = require('get-value');
+const colors = require('colors/safe');
+const projectConfig = require('../pregular.json');
+
+const patternPath = 'test.browser.pattern';
+const filePatterns = get(projectConfig, patternPath, null);
+if (!filePatterns) {
+  throw new Error(colors.red(`Could not find "${patternPath}" in pregular.json`));
+}
+
 const excludeFromCompilation = ['**/node_modules/**/*.js', '**/node_modules/**/*.ts'];
+
 const file = (filePattern, config) => ({
   pattern: config.grep ? config.grep : filePattern,
   type: 'module',
 });
+
 const customPolyfills = [
   {
     name: 'document-register-element',
@@ -12,18 +23,21 @@ const customPolyfills = [
   },
 ];
 
+const createFilePatterns = (patterns, config = {}) => {
+  return patterns.map(pattern => file(pattern, config));
+};
+
 // karma.conf
 module.exports = config => {
   config.set({
     basePath: '../',
     frameworks: ['esm', 'jasmine'],
-    files: [file('packages/pkg-browser-*/**/test/*.spec.js', config)],
+    files: [...createFilePatterns(filePatterns, config)],
     browsers: [
       'Chrome',
       'Firefox',
-      // 'Safari',
-      // Error compiling: [BABEL] Unknown version 67 of Opera
-      // 'Opera',
+      // 'Safari', // Note: strange behavior, it tries to open file with redirection
+      // 'Opera',  // Error compiling: [BABEL] Unknown version 67 of Opera
     ],
     customLaunchers: {
       FirefoxHeadless: {

@@ -1,12 +1,19 @@
-// Bonus: https://tutel.me/c/programming/questions/47832603/running+tests+mjs++esm+on+node+using+jasmine+or+any+other+alternative
+const Jasmine = require('jasmine');
+const get = require('get-value');
+const colors = require('colors/safe');
+const JasmineConsoleReporter = require('jasmine-console-reporter');
+const projectConfig = require('../pregular.json');
+
+const patternPath = 'test.node.pattern';
+const filePatterns = get(projectConfig, patternPath, null);
+if (!filePatterns) {
+  throw new Error(colors.red(`Could not find "${patternPath}" in pregular.json`));
+}
 
 // setup Jasmine
-const Jasmine = require('jasmine');
-
 const jasmine = new Jasmine({});
 jasmine.loadConfig({
-  spec_dir: 'packages/pkg-node-*',
-  spec_files: ['**/*.spec.cjs'],
+  spec_files: [...filePatterns],
   random: false,
   seed: null,
   stopSpecOnExpectationFailure: false,
@@ -15,8 +22,6 @@ jasmine.loadConfig({
 jasmine.jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
 // setup console reporter
-const JasmineConsoleReporter = require('jasmine-console-reporter');
-
 const reporter = new JasmineConsoleReporter({
   colors: 1,
   cleanStack: 1,
@@ -32,3 +37,5 @@ const reporter = new JasmineConsoleReporter({
 jasmine.env.clearReporters();
 jasmine.addReporter(reporter);
 jasmine.execute();
+
+// Bonus: https://tutel.me/c/programming/questions/47832603/running+tests+mjs++esm+on+node+using+jasmine+or+any+other+alternative

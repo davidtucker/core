@@ -1,0 +1,21 @@
+{
+  "test": {
+    "browser": {
+      "pattern": [
+        "packages/pkg-dom/test/**/*.spec.js",
+        "packages/pkg-for-of-template/test/**/*.spec.js",
+        "packages/pkg-if-template/test/**/*.spec.js",
+        "packages/pkg-karma-spec-reporter/test/**/*.spec.js",
+        "packages/pkg-playground/test/**/*.spec.js"
+      ]
+    },
+    "node": {
+      "pattern": [
+        "packages/pkg-component-compiler/test/**/*.spec.cjs",
+        "packages/pkg-di-compiler/test/**/*.spec.cjs",
+        "packages/pkg-directive-compiler/test/**/*.spec.cjs",
+        "packages/pkg-html-compiler/test/**/*.spec.cjs"
+      ]
+    }
+  }
+}

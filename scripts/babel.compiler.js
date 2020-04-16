@@ -1,6 +1,6 @@
 const watch = require('node-watch');
-const shell = require('shelljs');
-const util = require('util');
+const { format } = require('util');
+const { exec } = require('shelljs');
 
 // options
 const watchOptions = {
@@ -32,19 +32,19 @@ const compiledMessage = name => console.log('Successfully compiled 1 file with B
 const hasError = (code, stderr) => code !== 0 && stderr;
 
 // First compile all files to .js and .cjs
-shell.exec(execBabel, (code, stdout, stderr) => {
+exec(execBabel, (code, stdout, stderr) => {
   // Then compile particular file on change
   watch('./packages', watchOptions, (_, name) => {
     // compile to esModule
-    shell.exec(util.format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
+    exec(format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToJs(name)),
     );
     // compile to commonJs
-    shell.exec(util.format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, code =>
+    exec(format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, code =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToCJs(name)),
     );
     // compile to definition file
-    shell.exec(util.format(execTsDeclarationsSingle, name), shellOptions, code =>
+    exec(format(execTsDeclarationsSingle, name), shellOptions, code =>
       hasError(code, stderr) ? null : compiledMessage(replaceExtToDTs(name)),
     );
   });

@@ -73,7 +73,7 @@ export class IvyAstVisitor implements t.Visitor {
   }
 }
 
-const template = `
+export const template = `
   <div *ngFoo="foo">
     <div *ngBar="bar">
       <div *ngLuz="luz"></div>
