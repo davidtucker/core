@@ -1,14 +1,9 @@
 const Jasmine = require('jasmine');
-const get = require('get-value');
-const colors = require('colors/safe');
 const JasmineConsoleReporter = require('jasmine-console-reporter');
 const projectConfig = require('../pregular.json');
+const getConfigByPath = require('../utils/get-config-by-path');
 
-const patternPath = 'test.node.pattern';
-const filePatterns = get(projectConfig, patternPath);
-if (!filePatterns) {
-  throw new Error(colors.red(`Could not find "${patternPath}" in pregular.json`));
-}
+const filePatterns = getConfigByPath(projectConfig, 'test.node.pattern', 'pregular.json');
 
 // setup Jasmine
 const jasmine = new Jasmine({});

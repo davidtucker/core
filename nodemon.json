@@ -1,6 +1,6 @@
 {
-  "watch": ["./packages"],
-  "ext": ".ts,.js,.cjs",
+  "watch": ["./packages/node"],
+  "ext": ".ts,.js",
   "ignore": [
     "build",
     "node_modules"

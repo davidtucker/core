@@ -1,13 +1,7 @@
-const get = require('get-value');
-const colors = require('colors/safe');
 const projectConfig = require('../pregular.json');
+const getConfigByPath = require('../utils/get-config-by-path');
 
-const patternPath = 'test.browser.pattern';
-const filePatterns = get(projectConfig, patternPath);
-if (!filePatterns) {
-  throw new Error(colors.red(`Could not find "${patternPath}" in pregular.json`));
-}
-
+const filePatterns = getConfigByPath(projectConfig, 'test.browser.pattern', 'pregular.json');
 const excludeFromCompilation = ['**/node_modules/**/*.js', '**/node_modules/**/*.ts'];
 
 const file = (filePattern, config) => ({

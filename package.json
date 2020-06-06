@@ -27,13 +27,13 @@
   "scripts": {
     "build:dev": "echo 'warning: 'build:dev' not implemented yet'",
     "build:prod": "echo 'warning: build:prod' not implemented yet'",
-    "clean": "find ./packages -type f \\( -iname '*.cjs' -o -iname '*.js' -o -iname '*.d.ts' \\) -delete",
+    "clean": "find ./packages -type f \\( -iname '*.js' -o -iname '*.d.ts' \\) -delete",
     "compile": "npm run clean && npm run compile:cjs:all && npm run compile:mjs:all && npm run compile:dec:all",
-    "compile:cjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .cjs --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
+    "compile:cjs:all": "babel ./packages/node --out-dir ./packages/node -x .ts --out-file-extension .js --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
     "compile:cjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --plugins @babel/plugin-transform-modules-commonjs --source-maps inline",
-    "compile:dec:all": "tsc ./packages/pkg-*/src/*.ts --emitDeclarationOnly --declaration --target ES5 --allowJs false",
+    "compile:dec:all": "tsc ./packages/**/pkg-*/src/*.ts --emitDeclarationOnly --declaration --target ES5 --allowJs false",
     "compile:dec:single": "tsc ${npm_config_src_file} --emitDeclarationOnly --declaration --target ES5 --allowJs false",
-    "compile:mjs:all": "babel ./packages --out-dir ./packages -x .ts --out-file-extension .js --source-maps inline",
+    "compile:mjs:all": "babel ./packages/browser --out-dir ./packages/browser -x .ts --out-file-extension .js --source-maps inline",
     "compile:mjs:single": "babel ${npm_config_src_file} --out-file ${npm_config_out_file} --source-maps inline",
     "compile:watch": "npm run clean && node scripts/babel.compiler.js",
     "eslint": "eslint ./ --ext .js,.ts --ignore-pattern '**/node_modules/**' --cache",
@@ -60,8 +60,8 @@
     "test:headless:watch": "concurrently \"npm run test:node:watch\" \"npm run test:browser:headless:watch\"",
     "test:node": "node scripts/jasmine.node.config.js",
     "test:node:coverage": "echo 'test:node:coverage not implemented yet'",
-    "test:node:watch": "nodemon --exec node scripts/jasmine.node.config.js --extensions \".cjs\" --ignore node_modules",
-    "test:node:watch:inspect": "nodemon --exec babel-node scripts/jasmine.node.config.js --extensions \".cjs\" --ignore node_modules --inspect-brk",
+    "test:node:watch": "nodemon --exec node scripts/jasmine.node.config.js --extensions \".js\" --ignore node_modules",
+    "test:node:watch:inspect": "nodemon --exec babel-node scripts/jasmine.node.config.js --extensions \".js\" --ignore node_modules --inspect-brk",
     "tslint": "tsc --noEmit --allowJs --target ES5 --declaration false --declarationMap false"
   },
   "husky": {

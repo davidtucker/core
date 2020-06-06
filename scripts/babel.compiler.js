@@ -1,6 +1,11 @@
 const watch = require('node-watch');
 const { format } = require('util');
 const { exec } = require('shelljs');
+const projectConfig = require('../pregular.json');
+const getConfigByPath = require('../utils/get-config-by-path');
+
+const browserPackages = getConfigByPath(projectConfig, 'compile.browser.packages', 'pregular.json');
+const nodePackages = getConfigByPath(projectConfig, 'compile.node.packages', 'pregular.json');
 
 // options
 const watchOptions = {
@@ -26,31 +31,33 @@ const execBabel = [execBabelCjsModuleAll, execBabelJsModuleAll, execTsDeclaratio
 
 // helper
 const replaceExtToJs = name => name.replace('.ts', '.js');
-const replaceExtToCJs = name => name.replace('.ts', '.cjs');
 const replaceExtToDTs = name => name.replace('.ts', '.d.ts');
 const compiledMessage = name => console.log('Successfully compiled 1 file with Babel: %s', name);
 const hasError = (code, stderr) => code !== 0 && stderr;
 
+// @todo: wait for all exec and then start tests
+// @solution: combineLatest(mjs, cjs, dts).pipe(take(1), tap(startTests))
+
 // First compile all files to .js and .cjs
 exec(execBabel, (code, stdout, stderr) => {
-  // Then compile particular file on change
-  watch('./packages', watchOptions, (_, name) => {
-    // compile to esModule
+  // watch and compile to esModule
+  watch(browserPackages, watchOptions, (_, name) =>
     exec(format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
       hasError(code, stderr) ? undefined : compiledMessage(replaceExtToJs(name)),
-    );
-    // compile to commonJs
-    exec(format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, code =>
-      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToCJs(name)),
-    );
-    // compile to definition file
+    ),
+  );
+
+  // watch compile to commonJs
+  watch(nodePackages, watchOptions, (_, name) =>
+    exec(format(execBabelCjsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
+      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToJs(name)),
+    ),
+  );
+
+  // watch compile to definition file
+  watch('./packages', watchOptions, (_, name) => {
     exec(format(execTsDeclarationsSingle, name), shellOptions, code =>
       hasError(code, stderr) ? undefined : compiledMessage(replaceExtToDTs(name)),
     );
   });
 });
-
-// bonus: write scripts/babel.compiler.js in golang
-// https://github.com/urfave/cli/blob/master/docs/v2/manual.md
-// https://golang.org/pkg/os/exec/
-// https://github.com/fsnotify/fsnotify
