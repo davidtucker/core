@@ -6,11 +6,12 @@ const getConfigByPath = require('../utils/get-config-by-path');
 
 const browserPackages = getConfigByPath(projectConfig, 'compile.browser.packages', 'pregular.json');
 const nodePackages = getConfigByPath(projectConfig, 'compile.node.packages', 'pregular.json');
+const globalPackages = getConfigByPath(projectConfig, 'compile.global.packages', 'pregular.json');
 
 // options
 const watchOptions = {
   recursive: true,
-  filter: /^((?!(node_modules|\.cjs|\.js|\.d\.ts)).)*$/,
+  filter: /^((?!(node_modules|\.cjs|\.js|\.d\.ts)).)*$/, // only .ts files are allowed
 };
 const shellOptions = {
   async: true,
@@ -55,7 +56,7 @@ exec(execBabel, (code, stdout, stderr) => {
   );
 
   // watch compile to definition file
-  watch('./packages', watchOptions, (_, name) => {
+  watch(globalPackages, watchOptions, (_, name) => {
     exec(format(execTsDeclarationsSingle, name), shellOptions, code =>
       hasError(code, stderr) ? undefined : compiledMessage(replaceExtToDTs(name)),
     );

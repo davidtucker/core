@@ -5,3 +5,4 @@ lib
 packages/**/*.js
 packages/**/*.cjs
 packages/**/*.d.ts
+.eslintcache
