@@ -12,6 +12,7 @@ export class AppComponentCompiled extends HTMLElement {
   }
 
   private _pgVm_foo = ['pg-uuid-1', true];
+
   private set pgVm_foo(value: any) {
     this._pgVm_foo[1] = value;
     this._pgIfTpl_1.setPgIf(value, () => {
@@ -20,6 +21,7 @@ export class AppComponentCompiled extends HTMLElement {
   }
 
   private _pgVm_bar = ['pg-uuid-2', 'valid-value'];
+
   private set pgVm_bar(value: any) {
     this._pgVm_bar[1] = value;
     this._pgIfTpl_2.setPgIf(value, () => {
@@ -28,6 +30,7 @@ export class AppComponentCompiled extends HTMLElement {
   }
 
   private _pgVm_baz = ['pg-uuid-3', { a: { b: 'valid-object' } }];
+
   private set pgVm_baz(value: any) {
     this._pgVm_baz[1] = value;
     this._pgIfTpl_3.setPgIf(value, () => {

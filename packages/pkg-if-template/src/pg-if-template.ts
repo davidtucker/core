@@ -44,6 +44,6 @@ export class PgHTMLTemplateElement extends HTMLTemplateElement {
   ? customElements.define('pg-if-template', PgHTMLTemplateElement as any, {
       extends: 'template',
     })
-  : null;
+  : undefined;
 
 export const PgIfTemplate = PgHTMLTemplateElement;

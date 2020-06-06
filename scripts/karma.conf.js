@@ -3,7 +3,7 @@ const colors = require('colors/safe');
 const projectConfig = require('../pregular.json');
 
 const patternPath = 'test.browser.pattern';
-const filePatterns = get(projectConfig, patternPath, null);
+const filePatterns = get(projectConfig, patternPath);
 if (!filePatterns) {
   throw new Error(colors.red(`Could not find "${patternPath}" in pregular.json`));
 }

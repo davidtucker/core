@@ -5,7 +5,7 @@ const JasmineConsoleReporter = require('jasmine-console-reporter');
 const projectConfig = require('../pregular.json');
 
 const patternPath = 'test.node.pattern';
-const filePatterns = get(projectConfig, patternPath, null);
+const filePatterns = get(projectConfig, patternPath);
 if (!filePatterns) {
   throw new Error(colors.red(`Could not find "${patternPath}" in pregular.json`));
 }
@@ -15,7 +15,7 @@ const jasmine = new Jasmine({});
 jasmine.loadConfig({
   spec_files: [...filePatterns],
   random: false,
-  seed: null,
+  seed: undefined,
   stopSpecOnExpectationFailure: false,
 });
 

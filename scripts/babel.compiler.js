@@ -37,15 +37,15 @@ exec(execBabel, (code, stdout, stderr) => {
   watch('./packages', watchOptions, (_, name) => {
     // compile to esModule
     exec(format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
-      hasError(code, stderr) ? null : compiledMessage(replaceExtToJs(name)),
+      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToJs(name)),
     );
     // compile to commonJs
     exec(format(execBabelCjsModuleSingle, name, replaceExtToCJs(name)), shellOptions, code =>
-      hasError(code, stderr) ? null : compiledMessage(replaceExtToCJs(name)),
+      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToCJs(name)),
     );
     // compile to definition file
     exec(format(execTsDeclarationsSingle, name), shellOptions, code =>
-      hasError(code, stderr) ? null : compiledMessage(replaceExtToDTs(name)),
+      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToDTs(name)),
     );
   });
 });
