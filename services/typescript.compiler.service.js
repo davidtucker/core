@@ -1,12 +1,15 @@
 const watch = require('node-watch');
 const { format } = require('util');
 const { exec } = require('shelljs');
+const { ReplaySubject } = require('rxjs');
 const projectConfig = require('../pregular.json');
 const getConfigByPath = require('../utils/get-config-by-path');
 
 const browserPackages = getConfigByPath(projectConfig, 'compile.browser.packages', 'pregular.json');
 const nodePackages = getConfigByPath(projectConfig, 'compile.node.packages', 'pregular.json');
 const globalPackages = getConfigByPath(projectConfig, 'compile.global.packages', 'pregular.json');
+
+const compilerIdle$ = new ReplaySubject();
 
 // options
 const watchOptions = {
@@ -30,35 +33,40 @@ const execTsDeclarationsSingle = 'npm run compile:dec:single --src-file=%s';
 // npm scripts: combine tasks ('& ' => run in shell parallel)
 const execBabel = [execBabelCjsModuleAll, execBabelJsModuleAll, execTsDeclarationsAll].join('& ');
 
-// helper
 const replaceExtToJs = name => name.replace('.ts', '.js');
 const replaceExtToDTs = name => name.replace('.ts', '.d.ts');
 const compiledMessage = name => console.log('Successfully compiled 1 file with Babel: %s', name);
 const hasError = (code, stderr) => code !== 0 && stderr;
-
-// @todo: wait for all exec and then start tests
-// @solution: combineLatest(mjs, cjs, dts).pipe(take(1), tap(startTests))
+const execDone = (name, code, stderr) => {
+  return hasError(code, stderr) ? undefined : compiledMessage(replaceExtToDTs(name));
+};
 
 // First compile all files to .js and .cjs
 exec(execBabel, (code, stdout, stderr) => {
-  // watch and compile to esModule
+  // notify all files are rendered
+  compilerIdle$.next(true);
+  compilerIdle$.complete();
+
+  // watch and compile single esModule file
   watch(browserPackages, watchOptions, (_, name) =>
     exec(format(execBabelJsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
-      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToJs(name)),
+      execDone(name, code, stderr),
     ),
   );
 
-  // watch compile to commonJs
+  // watch and compile single commonJs file
   watch(nodePackages, watchOptions, (_, name) =>
     exec(format(execBabelCjsModuleSingle, name, replaceExtToJs(name)), shellOptions, code =>
-      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToJs(name)),
+      execDone(name, code, stderr),
     ),
   );
 
-  // watch compile to definition file
+  // watch and compile single typed file
   watch(globalPackages, watchOptions, (_, name) => {
     exec(format(execTsDeclarationsSingle, name), shellOptions, code =>
-      hasError(code, stderr) ? undefined : compiledMessage(replaceExtToDTs(name)),
+      execDone(name, code, stderr),
     );
   });
 });
+
+module.exports.typescriptCompiler = compilerIdle$.asObservable();

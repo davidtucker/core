@@ -31,7 +31,6 @@ module.exports = config => {
       'Chrome',
       'Firefox',
       // 'Safari', // Note: strange behavior, it tries to open file with redirection
-      // 'Opera',  // Error compiling: [BABEL] Unknown version 67 of Opera
     ],
     customLaunchers: {
       FirefoxHeadless: {

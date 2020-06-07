@@ -343,10 +343,10 @@ This is not a design document. These are just my thoughts on how I imagine Pregu
 <font size="1">***In special cases lazy load polyfills for older browsers (+IE11 excluded) but not in first step of pregular***</font>
 
 ## dev watch test
-npm run compile:watch
-npm run test
+- npm run compile:watch
+- npm run test
 
 ## dev single run test
-npm run compile
-npm run test
+- npm run compile
+- npm run test
 

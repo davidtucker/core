@@ -32,5 +32,3 @@ const reporter = new JasmineConsoleReporter({
 jasmine.env.clearReporters();
 jasmine.addReporter(reporter);
 jasmine.execute();
-
-// Bonus: https://tutel.me/c/programming/questions/47832603/running+tests+mjs++esm+on+node+using+jasmine+or+any+other+alternative
