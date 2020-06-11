@@ -1,8 +1,7 @@
-const projectConfig = require('../pregular.json');
-const getConfigByPath = require('../utils/get-config-by-path');
+const projectConfig = require('../../pregular.json');
+const getConfigByPath = require('../../utils/get-config-by-path');
 
 const filePatterns = getConfigByPath(projectConfig, 'test.browser.pattern', 'pregular.json');
-const excludeFromCompilation = ['**/node_modules/**/*.js', '**/node_modules/**/*.ts'];
 
 const file = (filePattern, config) => ({
   pattern: config.grep ? config.grep : filePattern,
@@ -22,9 +21,10 @@ const createFilePatterns = (patterns, config = {}) => {
 };
 
 // karma.conf
+// @todo: basePath: how we can determine root directory of core?
 module.exports = config => {
   config.set({
-    basePath: '../',
+    basePath: '../../',
     frameworks: ['esm', 'jasmine'],
     files: [...createFilePatterns(filePatterns, config)],
     browsers: [
@@ -47,16 +47,7 @@ module.exports = config => {
       require.resolve('@open-wc/karma-esm'),
     ],
     esm: {
-      babel: true,
-      customBabelConfig: {
-        presets: ['@babel/preset-typescript'],
-      },
-      babelExclude: excludeFromCompilation,
-      babelModernExclude: excludeFromCompilation,
-      babelModuleExclude: excludeFromCompilation,
-
       nodeResolve: true,
-      fileExtensions: ['.js'],
       preserveSymlinks: true,
 
       polyfills: {

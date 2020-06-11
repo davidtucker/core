@@ -2,12 +2,13 @@ const watch = require('node-watch');
 const { format } = require('util');
 const { exec } = require('shelljs');
 const { ReplaySubject } = require('rxjs');
-const projectConfig = require('../pregular.json');
-const getConfigByPath = require('../utils/get-config-by-path');
+const projectConfig = require('../../pregular.json');
+const getConfigByPath = require('../../utils/get-config-by-path');
 
 const browserPackages = getConfigByPath(projectConfig, 'compile.browser.packages', 'pregular.json');
-const nodePackages = getConfigByPath(projectConfig, 'compile.node.packages', 'pregular.json');
 const globalPackages = getConfigByPath(projectConfig, 'compile.global.packages', 'pregular.json');
+const nodePackages = getConfigByPath(projectConfig, 'compile.node.packages', 'pregular.json');
+const srvPackages = getConfigByPath(projectConfig, 'compile.services.packages', 'pregular.json');
 
 const compilerIdle$ = new ReplaySubject();
 
@@ -21,9 +22,12 @@ const shellOptions = {
 };
 
 // npm scripts: compile all files to .d.ts, .js, .cjs
-const execBabelJsModuleAll = 'npm run compile:mjs:all';
-const execBabelCjsModuleAll = 'npm run compile:cjs:all';
-const execTsDeclarationsAll = 'npm run compile:dec:all';
+// @todo: allow to pass --src-dir --out-dir so that we can use it for services
+const execBabelCjsModuleAll =
+  'npm run compile:cjs:all --src-dir="./packages/node" --out-dir="./packages/node"';
+const execBabelJsModuleAll =
+  'npm run compile:mjs:all --src-dir="./packages/browser" --out-dir="./packages/browser"';
+const execTsDeclarationsAll = 'npm run compile:dec:all --src-files=./packages/**/pkg-*/src/*.ts';
 
 // npm scripts: compile single file to .d.ts, .js, .cjs
 const execBabelJsModuleSingle = 'npm run compile:mjs:single --src-file=%s --out-file=%s';
@@ -41,7 +45,7 @@ const execDone = (name, code, stderr) => {
   return hasError(code, stderr) ? undefined : compiledMessage(replaceExtToDTs(name));
 };
 
-// First compile all files to .js and .cjs
+// First compile all files to commonJs, moduleJs and d.ts
 exec(execBabel, (code, stdout, stderr) => {
   // notify all files are rendered
   compilerIdle$.next(true);

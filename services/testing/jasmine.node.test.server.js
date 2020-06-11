@@ -1,7 +1,7 @@
 const Jasmine = require('jasmine');
 const JasmineConsoleReporter = require('jasmine-console-reporter');
-const projectConfig = require('../pregular.json');
-const getConfigByPath = require('../utils/get-config-by-path');
+const projectConfig = require('../../pregular.json');
+const getConfigByPath = require('../../utils/get-config-by-path');
 
 const filePatterns = getConfigByPath(projectConfig, 'test.node.pattern', 'pregular.json');
 

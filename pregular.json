@@ -1,5 +1,45 @@
 {
+  "basePath": "./",
+  "targetPath": "compiled",
+
+  "test": {
+    "karma": {
+      "pattern": [
+        "packages/browser/**/*.spec.js"
+      ]
+    },
+    "jasmine":  {
+      "pattern": [
+        "packages/node/**/*.spec.js",
+        "services/**/*.spec.js",
+        "std/**/*.spec.js"
+      ]
+    },
+
+    "browser": {
+      "type": "karma",
+      "pattern": [
+        "packages/browser/**/*.spec.js"
+      ]
+    },
+    "node": {
+      "type": "jasmine",
+      "pattern": [
+        "packages/node/**/*.spec.js"
+      ]
+    }
+  },
+
   "compile": {
+    "commonjs": [
+      "packages/browser",
+      "services",
+      "std"
+    ],
+    "esModule": [
+      "packages/browser"
+    ],
+
     "browser": {
       "packages": "./packages/browser"
     },
@@ -8,20 +48,9 @@
     },
     "global": {
       "packages": "./packages"
-    }
-  },
-  "test": {
-    "browser": {
-      "type": "karma",
-      "pattern": [
-        "./packages/browser/**/*.spec.js"
-      ]
     },
-    "node": {
-      "type": "jasmine",
-      "pattern": [
-        "./packages/node/**/*.spec.js"
-      ]
+    "services": {
+      "packages": "./services"
     }
   }
 }

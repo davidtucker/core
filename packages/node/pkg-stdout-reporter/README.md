@@ -1,0 +1,1 @@
+# @pregular/stdout-reporter

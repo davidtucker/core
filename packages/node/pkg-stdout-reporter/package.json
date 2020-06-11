@@ -1,5 +1,5 @@
 {
-  "name": "@pregular/karma-spec-reporter",
+  "name": "@pregular/pkg-stdout-reporter",
   "version": "0.0.0",
   "type": "module",
   "exports": {
